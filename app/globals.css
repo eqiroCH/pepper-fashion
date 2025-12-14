@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-gray-800 bg-white font-sans antialiased;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-20 lg:py-28;
+  }
+  
+  .heading-1 {
+    @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-normal tracking-tight text-gray-900 leading-tight;
+    letter-spacing: -0.02em;
+  }
+  
+  .heading-2 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-serif font-normal tracking-tight text-gray-900 leading-tight;
+    letter-spacing: -0.01em;
+  }
+  
+  .heading-3 {
+    @apply text-2xl md:text-3xl font-serif font-normal text-gray-900 leading-tight;
+  }
+  
+  .text-lead {
+    @apply text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-700 font-light;
+    letter-spacing: 0.01em;
+  }
+  
+  .text-body {
+    @apply text-base md:text-lg leading-relaxed text-gray-600 font-light;
+    letter-spacing: 0.01em;
+  }
+  
+  .btn-primary {
+    @apply px-8 py-4 bg-primary text-white font-medium tracking-wide uppercase text-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+    letter-spacing: 0.1em;
+  }
+  
+  .btn-primary:hover {
+    background-color: #5a6b6a;
+  }
+  
+  .btn-secondary {
+    @apply px-8 py-4 bg-white text-primary border-2 border-primary font-medium tracking-wide uppercase text-sm transition-all duration-300 hover:bg-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+    letter-spacing: 0.1em;
+  }
+  
+  .link-hover {
+    @apply transition-colors duration-300 hover:text-primary;
+  }
+  
+  .fashion-gradient {
+    background: linear-gradient(135deg, #f5f1e8 0%, #ffffff 50%, #f5f1e8 100%);
+  }
+  
+  .text-fashion {
+    @apply text-gray-700;
+  }
+}
+
