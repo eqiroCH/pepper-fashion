@@ -7,7 +7,7 @@ interface Modelabel {
   name: string
   image: string
   alt: string
-  url: string
+  url?: string
 }
 
 const modelabels: Modelabel[] = [
@@ -16,7 +16,7 @@ const modelabels: Modelabel[] = [
   { name: 'ONLY', image: '/images/modelabels/Only-logo.png', alt: 'ONLY', url: 'https://www.only.com' },
   { name: 'mavi', image: '/images/modelabels/Mavi_logo.svg.png', alt: 'mavi', url: 'https://www.mavi.com' },
   { name: 'BLUE MONKEY', image: '/images/modelabels/bluemonkey.png', alt: 'BLUE MONKEY JEANSWEAR', url: 'https://www.bluemonkey.de/' },
-  { name: 'FUNKY STAFF', image: '/images/modelabels/image-removebg-preview.png', alt: 'FUNKY STAFF', url: 'https://www.funkystaff.com' },
+  { name: 'FUNKY STAFF', image: '/images/modelabels/image-removebg-preview.png', alt: 'FUNKY STAFF' },
   { name: 'Cream', image: '/images/modelabels/cache_17296346.jpg', alt: 'Cream', url: 'https://www.cream-clothing.com/' },
 ]
 
@@ -88,16 +88,33 @@ export function ModelabelsCarousel() {
                 className="flex-shrink-0 flex items-center justify-center"
                 style={{ width: '300px', height: '160px', padding: '20px' }}
               >
-                <a
-                  href={label.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative w-full h-full block cursor-pointer"
-                  onClick={(e) => {
-                    // Verhindere, dass der Klick das Karussell stoppt
-                    e.stopPropagation()
-                  }}
-                >
+                {label.url ? (
+                  <a
+                    href={label.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative w-full h-full block cursor-pointer group"
+                    onClick={(e) => {
+                      // Verhindere, dass der Klick das Karussell stoppt
+                      e.stopPropagation()
+                    }}
+                  >
+                    <div className="relative w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500 opacity-50 group-hover:opacity-100 group-hover:scale-105">
+                      <Image
+                        src={label.image}
+                        alt={label.alt}
+                        fill
+                        className="object-contain"
+                        sizes="260px"
+                        onError={(e) => {
+                          // Fallback wenn Bild nicht existiert
+                          const target = e.target as HTMLImageElement
+                          target.style.display = 'none'
+                        }}
+                      />
+                    </div>
+                  </a>
+                ) : (
                   <div className="relative w-full h-full grayscale hover:grayscale-0 transition-all duration-500 opacity-50 hover:opacity-100 hover:scale-105">
                     <Image
                       src={label.image}
@@ -112,7 +129,7 @@ export function ModelabelsCarousel() {
                       }}
                     />
                   </div>
-                </a>
+                )}
               </div>
             ))}
           </div>

@@ -15,13 +15,105 @@ export default function KontaktPage() {
             Wir freuen uns auf Ihre Nachricht
           </p>
         </div>
-        <div className="max-w-3xl mx-auto">
-          <div className="bg-fashion-cream/10 border border-gray-200/50 p-8 md:p-12">
-            <ContactForm />
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            {/* Kontaktinfos (Platzhalter) */}
+            <aside className="bg-fashion-cream/10 border border-gray-200/50 p-8 md:p-10">
+              <h2 className="heading-3 mb-6">Direktkontakt</h2>
+              <p className="text-sm text-gray-600 font-light mb-8">
+                Alternativ erreichen Sie uns auch direkt über folgende Kanäle:
+              </p>
+
+              <div className="space-y-4">
+                {[
+                  { label: 'Telefon', value: 'Platzhalter', icon: PhoneIcon },
+                  { label: 'E-Mail', value: 'Platzhalter', icon: MailIcon },
+                  { label: 'WhatsApp', value: 'Platzhalter', icon: WhatsAppIcon },
+                  { label: 'Instagram', value: 'Platzhalter', icon: InstagramIcon },
+                ].map((item) => (
+                  <div
+                    key={item.label}
+                    className="flex items-center gap-4 p-4 bg-white/70 border border-gray-200/60"
+                  >
+                    <div className="text-primary">
+                      <item.icon />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-sm font-light text-gray-700">
+                        {item.label}
+                      </div>
+                      <div className="text-gray-900 font-light truncate">{item.value}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </aside>
+
+            {/* Formular (schmaler) */}
+            <div className="bg-fashion-cream/10 border border-gray-200/50 p-8 md:p-10">
+              <ContactForm />
+            </div>
           </div>
         </div>
       </div>
     </div>
+  )
+}
+
+function PhoneIcon() {
+  return (
+    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M7 3h3l2 5-2 1c1.2 2.4 3.1 4.3 5.5 5.5l1-2 5 2v3c0 1.1-.9 2-2 2C10.1 20 4 13.9 4 6c0-1.1.9-2 2-2z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+function MailIcon() {
+  return (
+    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M4 7c0-1.1.9-2 2-2h12c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V7z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      <path
+        d="M4.5 7.5l7.5 6 7.5-6"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+function WhatsAppIcon() {
+  return (
+    <svg className="w-5 h-5 !text-primary" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
+      <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32C100.2 32-.2 132.4 0 256.1c.1 39.5 10.5 78 30.2 112.1L0 480l114.9-30.2c33.5 18.3 71.3 27.9 109.1 27.9h.1c123.7 0 224.1-100.4 224.1-224.1c0-59.3-23.1-115-65.1-156.5zM224 438.7h-.1c-33.5 0-66.2-9-94.3-26.1l-6.8-4.1l-68.2 17.9l18.2-66.5l-4.4-6.9C49.7 324.7 39.8 290.8 39.7 256C39.5 154 122.7 70.7 224 70.7c49.2 0 95.4 19.2 130.2 54s54 81 54 130.2c0 101.9-83 184.9-184.2 184.9zm101.7-138.4c-5.6-2.8-33.1-16.3-38.2-18.2c-5.1-1.9-8.8-2.8-12.5 2.8c-3.7 5.6-14.4 18.2-17.6 21.9c-3.2 3.7-6.5 4.2-12.1 1.4c-5.6-2.8-23.7-8.7-45.1-27.8c-16.7-14.9-28-33.3-31.3-38.9c-3.2-5.6-.3-8.6 2.4-11.4c2.5-2.5 5.6-6.5 8.4-9.8c2.8-3.2 3.7-5.6 5.6-9.3c1.9-3.7.9-7-0.5-9.8c-1.4-2.8-12.5-30.1-17.1-41.2c-4.5-10.9-9-9.4-12.5-9.6c-3.2-.2-7-.2-10.7-.2c-3.7 0-9.8 1.4-14.9 7c-5.1 5.6-19.5 19.1-19.5 46.5c0 27.4 20 53.9 22.8 57.6c2.8 3.7 39.4 60.2 95.4 84.5c13.3 5.7 23.7 9.2 31.8 11.8c13.4 4.3 25.6 3.7 35.2 2.2c10.7-1.6 33.1-13.5 37.7-26.5c4.6-13 4.6-24.2 3.2-26.5c-1.4-2.3-5.1-3.7-10.7-6.5z" />
+    </svg>
+  )
+}
+
+function InstagramIcon() {
+  return (
+    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M7 4h10a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      <path
+        d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      <path d="M17.5 6.5h.01" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+    </svg>
   )
 }
 

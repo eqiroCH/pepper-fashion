@@ -9,20 +9,26 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Logo-Farben: Rot und elegantes Grau
         primary: {
-          DEFAULT: '#7a8b8a',
-          light: '#9ba8a7',
-          dark: '#5a6b6a',
+          DEFAULT: '#c44536', // Pepper Red aus dem Logo
+          light: '#d4685b',
+          dark: '#a33828',
+        },
+        pepper: {
+          red: '#c44536',
+          gray: '#5a5a5a',
+          lightgray: '#8a8a8a',
         },
         accent: {
-          DEFAULT: '#d4a574',
-          light: '#e8c5a0',
-          dark: '#b8905a',
+          DEFAULT: '#5a5a5a', // Elegantes Grau
+          light: '#7a7a7a',
+          dark: '#3a3a3a',
         },
         fashion: {
-          cream: '#f5f1e8',
-          beige: '#e8e0d4',
-          sage: '#8b9a8a',
+          cream: '#faf8f5',
+          beige: '#f0ebe3',
+          warm: '#f5f0e8',
         },
       },
       fontFamily: {
@@ -37,6 +43,11 @@ const config: Config = {
           'sans-serif',
         ],
         serif: [
+          'Playfair Display',
+          'Georgia',
+          'serif',
+        ],
+        display: [
           'Playfair Display',
           'Georgia',
           'serif',

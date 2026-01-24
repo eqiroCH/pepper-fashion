@@ -2,53 +2,45 @@ import Image from 'next/image'
 
 export function Intro() {
   return (
-    <section className="section-padding bg-white relative z-10 -mt-16 md:-mt-24 pt-24 md:pt-28">
+    <section className="section-padding bg-white relative">
       <div className="container-custom">
+        {/* Header with Logo */}
         <div className="mb-16 text-center">
-          <h1 className="heading-1 mb-6">pepper-fashion</h1>
-          <p className="text-2xl md:text-3xl text-gray-700 font-light tracking-wide">
-            Kompetente Modeberatung für Menschen mit Stil
+          <div className="relative w-72 md:w-96 h-32 md:h-40 mx-auto mb-8">
+            <Image
+              src="/logo.jpg"
+              alt="Pepper Fashion - Wädenswil & Siebnen"
+              fill
+              className="object-contain"
+              sizes="(max-width: 768px) 288px, 384px"
+              priority
+            />
+          </div>
+          <h1 className="sr-only">pepper-fashion</h1>
+          <p className="text-lg md:text-xl text-gray-600 font-light tracking-wide">
+            kompetente Modeberatung für Menschen mit Stil
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-          <div className="space-y-8">
-            <p className="text-lead">
-              Entdecken Sie mit unserer Hilfe die Freude am bewussten Umgang mit Mode: 
-              Kombinieren Sie aktuelle Farb- und Fashiontrends geschickt mit Ihrem individuellen Kleiderstil.
+        {/* Content */}
+        <div className="max-w-4xl mx-auto">
+          <div className="space-y-8 text-center">
+            <p className="max-w-3xl mx-auto text-xl md:text-2xl leading-relaxed text-gray-700 font-light">
+              Mode, die zu Ihnen passt – persönlich beraten, stilvoll kombiniert.
             </p>
-            <p className="text-body">
-              Wir zeigen Ihnen gerne, wie Sie Ihre bestehende Garderobe sinnvoll nutzen und 
-              clever mit Kleidern, Schuhen und Accessoires unserer angesagten Modelabels ergänzen.
-            </p>
-            <p className="text-body">
-              Ob Spontan-Einkauf oder ausgedehnte Shopping-Tour: boutique pepper-fashion ist eine 
-              Wohlfühl-Oase, in der jeder Einkauf zu einem Erlebnis wird. Planen Sie genügend Zeit 
-              für Ihren Einkauf ein und lassen Sie sich die neusten Modetrends in aller Ruhe bei 
-              einem Glas Prosecco oder bei einer Tasse Kaffee zeigen.
-            </p>
-            <div className="pt-8 border-t border-gray-200">
-              <p className="text-base text-gray-700 font-light">
-                <strong className="text-primary font-normal">pepper-fashion</strong> – Kleider und Accessoires im Herzen von Siebnen und 
-                Showroom in Horgen bei Salottino.
-              </p>
+            
+            <div className="flex justify-center">
+              <div className="w-16 h-px bg-primary/40" />
             </div>
-          </div>
-          <div className="flex justify-center lg:justify-end">
-            <div className="w-full max-w-sm bg-fashion-cream/30 p-12 flex items-center justify-center border border-gray-100">
-              <div className="text-center">
-                <div className="relative w-48 h-48 mx-auto mb-4">
-                  <Image
-                    src="/logo.jpg"
-                    alt="pepper-fashion Logo"
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 768px) 100vw, 192px"
-                  />
-                </div>
-                <p className="text-xs text-gray-500 font-light tracking-wider uppercase">pepper-fashion</p>
-              </div>
-            </div>
+            
+            <p className="max-w-3xl mx-auto text-base md:text-lg leading-relaxed text-gray-600 font-light">
+              Gemeinsam holen wir das Beste aus Ihrer Garderobe heraus und ergänzen sie mit
+              ausgewählten Kleidern, Schuhen und Accessoires unserer Modelabels.
+            </p>
+            
+            <p className="max-w-3xl mx-auto text-base md:text-lg leading-relaxed text-gray-600 font-light">
+              In entspannter Atmosphäre – gerne mit Kaffee oder einem Glas Prosecco.
+            </p>
           </div>
         </div>
       </div>

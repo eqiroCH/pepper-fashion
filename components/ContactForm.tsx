@@ -3,14 +3,14 @@
 import { useState } from 'react'
 
 export function ContactForm() {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     name: '',
-    nachname: '',
     firma: '',
     email: '',
     bemerkung: '',
-    sicherheitscode: '',
-  })
+  }
+
+  const [formData, setFormData] = useState(initialFormData)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -25,9 +25,9 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-8">
+    <form onSubmit={handleSubmit} className="space-y-6">
       <div>
-        <label htmlFor="name" className="block text-sm font-light text-gray-700 mb-3 tracking-wide uppercase">
+        <label htmlFor="name" className="block text-sm font-light text-gray-700 mb-2">
           Name *
         </label>
         <input
@@ -37,27 +37,13 @@ export function ContactForm() {
           required
           value={formData.name}
           onChange={handleChange}
-          className="w-full px-5 py-4 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all duration-300 font-light"
+          className="w-full px-4 py-2.5 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all duration-300 font-light"
         />
       </div>
 
       <div>
-        <label htmlFor="nachname" className="block text-sm font-light text-gray-700 mb-3 tracking-wide uppercase">
-          Nachname
-        </label>
-        <input
-          type="text"
-          id="nachname"
-          name="nachname"
-          value={formData.nachname}
-          onChange={handleChange}
-          className="w-full px-5 py-4 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all duration-300 font-light"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="firma" className="block text-sm font-light text-gray-700 mb-3 tracking-wide uppercase">
-          Firma
+        <label htmlFor="firma" className="block text-sm font-light text-gray-700 mb-2">
+          Firma (optional)
         </label>
         <input
           type="text"
@@ -65,12 +51,12 @@ export function ContactForm() {
           name="firma"
           value={formData.firma}
           onChange={handleChange}
-          className="w-full px-5 py-4 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all duration-300 font-light"
+          className="w-full px-4 py-2.5 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all duration-300 font-light"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-light text-gray-700 mb-3 tracking-wide uppercase">
+        <label htmlFor="email" className="block text-sm font-light text-gray-700 mb-2">
           E-Mail *
         </label>
         <input
@@ -80,53 +66,28 @@ export function ContactForm() {
           required
           value={formData.email}
           onChange={handleChange}
-          className="w-full px-5 py-4 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all duration-300 font-light"
+          className="w-full px-4 py-2.5 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all duration-300 font-light"
         />
       </div>
 
       <div>
-        <label htmlFor="bemerkung" className="block text-sm font-light text-gray-700 mb-3 tracking-wide uppercase">
+        <label htmlFor="bemerkung" className="block text-sm font-light text-gray-700 mb-2">
           Bemerkung *
         </label>
         <textarea
           id="bemerkung"
           name="bemerkung"
           required
-          rows={6}
+          rows={5}
           value={formData.bemerkung}
           onChange={handleChange}
-          className="w-full px-5 py-4 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all duration-300 resize-vertical font-light"
+          className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all duration-300 resize-vertical font-light"
         />
       </div>
 
-      <div>
-        <label htmlFor="sicherheitscode" className="block text-sm font-light text-gray-700 mb-3 tracking-wide uppercase">
-          Sicherheitscode
-        </label>
-        <p className="text-sm text-gray-600 mb-4 font-light">
-          Geben Sie die Zahlen und Buchstaben aus dem unten angezeigten Bild ein.
-        </p>
-        <div className="flex gap-4 items-center">
-          <input
-            type="text"
-            id="sicherheitscode"
-            name="sicherheitscode"
-            value={formData.sicherheitscode}
-            onChange={handleChange}
-            className="px-5 py-4 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all duration-300 font-light"
-          />
-          <div className="w-32 h-14 bg-fashion-cream/30 border border-gray-300 flex items-center justify-center">
-            <span className="text-xs text-gray-400 font-light">Captcha</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex gap-4 pt-6">
-        <button type="submit" className="btn-primary">
+      <div className="flex gap-4 pt-4">
+        <button type="submit" className="btn-primary w-full">
           Absenden
-        </button>
-        <button type="reset" className="btn-secondary">
-          Zurücksetzen
         </button>
       </div>
     </form>

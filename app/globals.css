@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply text-gray-800 bg-white font-sans antialiased;
+    @apply text-gray-800 bg-fashion-cream font-sans antialiased;
     font-feature-settings: 'kern' 1, 'liga' 1;
   }
   
@@ -25,17 +25,17 @@
   }
   
   .heading-1 {
-    @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-normal tracking-tight text-gray-900 leading-tight;
+    @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-normal tracking-tight text-gray-900 leading-tight;
     letter-spacing: -0.02em;
   }
   
   .heading-2 {
-    @apply text-3xl md:text-4xl lg:text-5xl font-serif font-normal tracking-tight text-gray-900 leading-tight;
+    @apply text-3xl md:text-4xl lg:text-5xl font-display font-normal tracking-tight text-gray-900 leading-tight;
     letter-spacing: -0.01em;
   }
   
   .heading-3 {
-    @apply text-2xl md:text-3xl font-serif font-normal text-gray-900 leading-tight;
+    @apply text-2xl md:text-3xl font-display font-normal text-gray-900 leading-tight;
   }
   
   .text-lead {
@@ -54,7 +54,7 @@
   }
   
   .btn-primary:hover {
-    background-color: #5a6b6a;
+    background-color: #a33828;
   }
   
   .btn-secondary {
@@ -67,11 +67,20 @@
   }
   
   .fashion-gradient {
-    background: linear-gradient(135deg, #f5f1e8 0%, #ffffff 50%, #f5f1e8 100%);
+    background: linear-gradient(135deg, #faf8f5 0%, #ffffff 50%, #faf8f5 100%);
   }
   
   .text-fashion {
     @apply text-gray-700;
+  }
+  
+  /* Accent decorations */
+  .accent-line {
+    @apply w-12 h-1 bg-primary;
+  }
+  
+  .accent-dot {
+    @apply w-2 h-2 rounded-full bg-primary;
   }
 }
 

@@ -45,7 +45,7 @@ export function Hero() {
   }
 
   return (
-    <section className="relative h-[70vh] md:h-[75vh] overflow-hidden z-0">
+    <section className="relative h-[70vh] md:h-[80vh] overflow-hidden">
       {/* Image Slider */}
       <div className="absolute inset-0">
         {heroImages.map((image, index) => (
@@ -59,7 +59,7 @@ export function Hero() {
               src={image.src}
               alt={image.alt}
               fill
-              className="object-cover"
+              className="object-cover object-bottom"
               priority={index === 0}
               sizes="100vw"
             />
