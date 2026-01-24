@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { LocationsGrid } from '@/components/LocationsGrid'
 
 export const metadata = {
@@ -15,7 +16,22 @@ export default function StandortePage() {
             Besuchen Sie uns an unseren beiden Standorten
           </p>
         </div>
-        <LocationsGrid />
+        <Suspense fallback={
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white border border-gray-200/60 rounded-2xl p-6 md:p-8 animate-pulse">
+              <div className="h-8 bg-gray-200 rounded w-3/4 mb-4"></div>
+              <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
+              <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+            </div>
+            <div className="bg-white border border-gray-200/60 rounded-2xl p-6 md:p-8 animate-pulse">
+              <div className="h-8 bg-gray-200 rounded w-3/4 mb-4"></div>
+              <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
+              <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+            </div>
+          </div>
+        }>
+          <LocationsGrid />
+        </Suspense>
       </div>
     </div>
   )
