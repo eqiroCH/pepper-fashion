@@ -126,7 +126,7 @@ export default function NewsArchivPage() {
   return (
     <div className="section-padding bg-white">
       <div className="container-custom">
-        <div className="max-w-5xl">
+        <div className="max-w-5xl mx-auto">
           {/* Header */}
           <div className="mb-10">
             <h1 className="heading-1 mb-4 text-center">News Archiv</h1>

@@ -8,13 +8,14 @@ interface Modelabel {
   image: string
   alt: string
   url?: string
+  scale?: number // Individuelle Skalierung für Logo-Grössen-Anpassung
 }
 
 const modelabels: Modelabel[] = [
   { name: 'NÜ DENMARK', image: '/images/modelabels/nu-denmark-logo.png', alt: 'NÜ DENMARK', url: 'https://www.nu-denmark.com' },
-  { name: 'CIPO & BAXX', image: '/images/modelabels/cipo-paxx-2.png', alt: 'CIPO & BAXX', url: 'https://cipoandbaxx.com/' },
+  { name: 'CIPO & BAXX', image: '/images/modelabels/cipo-paxx-2.png', alt: 'CIPO & BAXX', url: 'https://cipoandbaxx.com/', scale: 2.0 },
   { name: 'ONLY', image: '/images/modelabels/Only-logo.png', alt: 'ONLY', url: 'https://www.only.com' },
-  { name: 'mavi', image: '/images/modelabels/Mavi_logo.svg.png', alt: 'mavi', url: 'https://www.mavi.com' },
+  { name: 'mavi', image: '/images/modelabels/Mavi_logo.svg.png', alt: 'mavi', url: 'https://www.mavi.com', scale: 0.75 },
   { name: 'BLUE MONKEY', image: '/images/modelabels/bluemonkey.png', alt: 'BLUE MONKEY JEANSWEAR', url: 'https://www.bluemonkey.de/' },
   { name: 'FUNKY STAFF', image: '/images/modelabels/image-removebg-preview.png', alt: 'FUNKY STAFF' },
   { name: 'Cream', image: '/images/modelabels/cache_17296346.jpg', alt: 'Cream', url: 'https://www.cream-clothing.com/' },
@@ -99,7 +100,10 @@ export function ModelabelsCarousel() {
                       e.stopPropagation()
                     }}
                   >
-                    <div className="relative w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500 opacity-50 group-hover:opacity-100 group-hover:scale-105">
+                    <div 
+                      className="relative w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500 opacity-50 group-hover:opacity-100 group-hover:scale-105"
+                      style={{ transform: label.scale ? `scale(${label.scale})` : undefined }}
+                    >
                       <Image
                         src={label.image}
                         alt={label.alt}
@@ -115,7 +119,10 @@ export function ModelabelsCarousel() {
                     </div>
                   </a>
                 ) : (
-                  <div className="relative w-full h-full grayscale hover:grayscale-0 transition-all duration-500 opacity-50 hover:opacity-100 hover:scale-105">
+                  <div 
+                    className="relative w-full h-full grayscale hover:grayscale-0 transition-all duration-500 opacity-50 hover:opacity-100 hover:scale-105"
+                    style={{ transform: label.scale ? `scale(${label.scale})` : undefined }}
+                  >
                     <Image
                       src={label.image}
                       alt={label.alt}

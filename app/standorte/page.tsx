@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function StandortePage() {
   return (
-    <div className="section-padding bg-white">
+    <div className="section-padding bg-white min-h-[calc(100vh-200px)] pb-24 md:pb-32">
       <div className="container-custom">
         <div className="mb-16 text-center">
           <h1 className="heading-1 mb-6">Standorte</h1>
@@ -32,6 +32,7 @@ export default function StandortePage() {
         }>
           <LocationsGrid />
         </Suspense>
+        <div className="h-32 md:h-48"></div>
       </div>
     </div>
   )

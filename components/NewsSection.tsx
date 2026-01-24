@@ -54,15 +54,17 @@ export function NewsSection() {
     <section className="bg-fashion-beige/50 section-padding">
       <div className="container-custom">
         {/* Header */}
-        <div className="flex items-center justify-between mb-12">
-          <div>
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-8 h-px bg-primary" />
-              <span className="text-xs tracking-widest uppercase text-primary font-medium">
-                Aktuelles
-              </span>
-            </div>
-            <h2 className="heading-2">News & Events</h2>
+        <div className="mb-12">
+          <h2 className="heading-2 text-center mb-10">News & Events</h2>
+        </div>
+        
+        {/* Aktuelles & Alle News - direkt über den Karten */}
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center gap-4">
+            <div className="w-8 h-px bg-primary" />
+            <span className="text-xs tracking-widest uppercase text-primary font-medium">
+              Aktuelles
+            </span>
           </div>
           <Link 
             href="/news" 

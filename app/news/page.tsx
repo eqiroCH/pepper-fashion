@@ -113,7 +113,7 @@ export default function NewsPage() {
   return (
     <div className="section-padding bg-white">
       <div className="container-custom">
-        <div className="max-w-5xl">
+        <div className="max-w-5xl mx-auto">
           {/* Header */}
           <div className="mb-10">
             <h1 className="heading-1 mb-4 text-center">News</h1>
@@ -123,7 +123,7 @@ export default function NewsPage() {
           </div>
 
           {/* Category Filter */}
-          <div className="mb-10">
+          <div className="mb-6">
             <div className="flex flex-wrap gap-2 justify-center">
               {categories.map((cat) => {
                 const active = cat === selectedCategory
@@ -144,25 +144,26 @@ export default function NewsPage() {
                 )
               })}
             </div>
+          </div>
 
-            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-4">
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-px bg-primary/60" />
-                <span className="text-xs tracking-widest uppercase text-primary font-medium">
-                  Aktuelles
-                </span>
-              </div>
-
-              <Link
-                href="/news/archiv"
-                className="inline-flex items-center gap-2 text-primary font-medium tracking-wide uppercase text-sm hover:gap-4 transition-all duration-300"
-              >
-                Zum Archiv
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
+          {/* Aktuelles & Archiv Link */}
+          <div className="mb-10 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-px bg-primary/60" />
+              <span className="text-xs tracking-widest uppercase text-primary font-medium">
+                Aktuelles
+              </span>
             </div>
+
+            <Link
+              href="/news/archiv"
+              className="inline-flex items-center gap-2 text-primary font-medium tracking-wide uppercase text-sm hover:gap-4 transition-all duration-300"
+            >
+              Zum Archiv
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
           </div>
 
           {/* News Grid */}
