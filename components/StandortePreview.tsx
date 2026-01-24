@@ -5,8 +5,8 @@ const standorte = [
     id: 'pepper-fashion-siebnen',
     slug: 'siebnen',
     name: 'Pepper-Fashion Siebnen',
-    subtitle: 'Boutique im Herzen von Siebnen',
-    description: 'Unsere Hauptboutique mit der kompletten Kollektion. Hier finden Sie Kleider und Accessoires unserer angesagten Modelabels in entspannter Atmosphäre.',
+    subtitle: 'Bahnhofstrasse 1, 8854 Siebnen',
+    description: 'Unsere Boutique im Herzen von Siebnen. Hier finden Sie Kleider und Accessoires unserer angesagten Modelabels in entspannter Atmosphäre.',
     highlight: 'Hauptstandort',
   },
   {
@@ -34,7 +34,7 @@ export function StandortePreview() {
           </div>
           <h2 className="heading-2 mb-4">Unsere Standorte</h2>
           <p className="text-body max-w-2xl mx-auto">
-            Wädenswil & Siebnen – zwei Orte, ein Erlebnis
+            Siebnen & Horgen – zwei Orte, ein Erlebnis
           </p>
         </div>
 

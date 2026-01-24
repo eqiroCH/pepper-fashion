@@ -47,7 +47,7 @@ export function Navigation() {
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative h-14 w-44 md:h-16 md:w-56">
               <Image
-                src="/PepperLogoWoBackground.png"
+                src="/PepperLogoNew.png"
                 alt="pepper-fashion Logo"
                 fill
                 className="object-contain"
@@ -64,7 +64,7 @@ export function Navigation() {
               <span className={`block text-xs tracking-widest uppercase transition-colors duration-300 ${
                 isTransparent ? 'text-white/80' : 'text-primary'
               }`}>
-                Wädenswil & Siebnen
+                Siebnen & Horgen
               </span>
             </div>
           </Link>

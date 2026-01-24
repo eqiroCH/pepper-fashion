@@ -8,8 +8,8 @@ export function Intro() {
         <div className="mb-16 text-center">
           <div className="relative w-72 md:w-96 h-32 md:h-40 mx-auto mb-8">
             <Image
-              src="/logo.jpg"
-              alt="Pepper Fashion - Wädenswil & Siebnen"
+              src="/PepperLogoNew.png"
+              alt="Pepper Fashion - Siebnen & Horgen"
               fill
               className="object-contain"
               sizes="(max-width: 768px) 288px, 384px"

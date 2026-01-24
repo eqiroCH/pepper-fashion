@@ -29,8 +29,8 @@ export default function ImpressumPage() {
               </p>
               <div className="mt-6">
                 <p className="font-medium text-gray-900">pepper-fashion gmbh</p>
-                <p>Zugerstrasse 5</p>
-                <p>8820 Wädenswil</p>
+                <p>Bahnhofstrasse 1</p>
+                <p>8854 Siebnen</p>
                 <p>Schweiz</p>
               </div>
             </div>

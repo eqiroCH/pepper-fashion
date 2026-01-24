@@ -17,35 +17,106 @@ export default function KontaktPage() {
         </div>
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-            {/* Kontaktinfos (Platzhalter) */}
+            {/* Kontaktinfos */}
             <aside className="bg-fashion-cream/10 border border-gray-200/50 p-8 md:p-10">
-              <h2 className="heading-3 mb-6">Direktkontakt</h2>
-              <p className="text-sm text-gray-600 font-light mb-8">
-                Alternativ erreichen Sie uns auch direkt über folgende Kanäle:
-              </p>
-
-              <div className="space-y-4">
-                {[
-                  { label: 'Telefon', value: 'Platzhalter', icon: PhoneIcon },
-                  { label: 'E-Mail', value: 'Platzhalter', icon: MailIcon },
-                  { label: 'WhatsApp', value: 'Platzhalter', icon: WhatsAppIcon },
-                  { label: 'Instagram', value: 'Platzhalter', icon: InstagramIcon },
-                ].map((item) => (
-                  <div
-                    key={item.label}
-                    className="flex items-center gap-4 p-4 bg-white/70 border border-gray-200/60"
-                  >
-                    <div className="text-primary">
-                      <item.icon />
-                    </div>
-                    <div className="min-w-0">
-                      <div className="text-sm font-light text-gray-700">
-                        {item.label}
-                      </div>
-                      <div className="text-gray-900 font-light truncate">{item.value}</div>
-                    </div>
+              <h2 className="heading-3 mb-6">Unsere Standorte</h2>
+              
+              {/* Standort Siebnen */}
+              <div className="mb-8">
+                <h3 className="text-sm font-medium text-primary uppercase tracking-wide mb-3">Pepper Fashion Siebnen</h3>
+                <div className="space-y-1 text-sm text-gray-600 font-light">
+                  <p>
+                    <a 
+                      href="https://www.google.com/maps/search/?api=1&query=Bahnhofstrasse+1,+8854+Siebnen" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="hover:text-primary transition-colors"
+                    >
+                      Bahnhofstrasse 1
+                    </a>
+                  </p>
+                  <p>8854 Siebnen</p>
+                  <p>
+                    <a href="tel:+41555258888" className="hover:text-primary transition-colors">
+                      +41 55 525 88 88
+                    </a>
+                  </p>
+                  <p>
+                    <a href="mailto:siebnen@pepper-fashion.ch" className="hover:text-primary transition-colors">
+                      siebnen@pepper-fashion.ch
+                    </a>
+                  </p>
+                  <div className="pt-2 text-xs text-gray-500">
+                    <p>Montag geschlossen</p>
+                    <p>DI-FR: 9-12 | 14-18 Uhr</p>
+                    <p>SA: 9-16 Uhr</p>
                   </div>
-                ))}
+                </div>
+              </div>
+
+              {/* Showroom Horgen */}
+              <div className="pt-6 border-t border-gray-200/60">
+                <h3 className="text-sm font-medium text-primary uppercase tracking-wide mb-3">Showroom Pepper Fashion @Salottino</h3>
+                <div className="space-y-1 text-sm text-gray-600 font-light">
+                  <p>
+                    <a 
+                      href="https://www.google.com/maps/search/?api=1&query=Seestrasse+159,+8810+Horgen" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="hover:text-primary transition-colors"
+                    >
+                      Seestrasse 159
+                    </a>
+                  </p>
+                  <p>8810 Horgen</p>
+                  <p>
+                    <a href="tel:+41795760922" className="hover:text-primary transition-colors">
+                      +41 79 576 09 22
+                    </a>
+                  </p>
+                  <div className="pt-2 text-xs text-gray-500">
+                    <p className="italic text-gray-400">Öffnungszeiten folgen</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Social Media */}
+              <div className="pt-6 mt-6 border-t border-gray-200/60">
+                <h3 className="text-sm font-medium text-primary uppercase tracking-wide mb-4">Folgen Sie uns</h3>
+                <div className="flex items-center gap-4">
+                  <a
+                    href="https://www.instagram.com/pepper_fashion_gmbh/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-all duration-300"
+                    aria-label="Instagram"
+                  >
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M7 4h10a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                      />
+                      <path
+                        d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                      />
+                      <path d="M17.5 6.5h.01" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                    </svg>
+                  </a>
+                  <a
+                    href="https://www.facebook.com/pepperfashiongmbh/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-all duration-300"
+                    aria-label="Facebook"
+                  >
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2z" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </aside>
 

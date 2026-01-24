@@ -7,7 +7,7 @@ export function Footer() {
             <div className="flex items-center gap-3">
               <a href="/" aria-label="Zur Startseite" className="block shrink-0">
                 <img
-                  src="/PepperLogoWoBackground.png"
+                  src="/PepperLogoNew.png"
                   alt="Pepper Fashion Logo"
                   className="h-7 w-auto"
                 />

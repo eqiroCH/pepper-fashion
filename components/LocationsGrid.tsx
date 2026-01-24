@@ -15,18 +15,37 @@ interface Location {
   lageplanHref: string
 }
 
-// Siebnen (Hauptstandort) LINKS, Horgen (Showroom) RECHTS
-const locations: Location[] = [
+interface OpeningHours {
+  closed: string
+  weekdays: string
+  saturday: string
+}
+
+interface LocationWithHours extends Location {
+  phone?: string
+  email?: string
+  openingHours?: OpeningHours
+}
+
+// Siebnen & Horgen Showroom
+const locations: LocationWithHours[] = [
   {
     id: 'pepper-fashion-siebnen',
     slug: 'siebnen',
     title: 'Boutique Pepper-Fashion Siebnen',
-    titleShort: 'Pepper-Fashion Siebnen',
+    titleShort: 'Standort Siebnen SZ',
     shortDescription: 'Unsere Boutique im Herzen von Siebnen. Hier finden Sie Kleider und Accessoires unserer angesagten Modelabels.',
     fullDescription: 'Entdecken Sie an der Bahnhofstrasse 1 in Siebnen mit unserer Hilfe die Freude am bewussten Umgang mit Mode: Kombinieren Sie aktuelle Farb- und Fashiontrends geschickt mit Ihrem individuellen Kleiderstil. Wir zeigen Ihnen gerne, wie Sie Ihre bestehende Garderobe sinnvoll nutzen und clever mit Kleidern, Schuhen und Accessoires unserer angesagten Modelabels ergänzen.',
-    address: 'Bahnhofstrasse 1, Siebnen',
+    address: 'Bahnhofstrasse 1, 8854 Siebnen',
     addressNote: 'Unser Lokal an der Bahnhofstrasse 1 in Siebnen',
     lageplanHref: '#lageplan-siebnen',
+    phone: '+41 55 525 88 88',
+    email: 'siebnen@pepper-fashion.ch',
+    openingHours: {
+      closed: 'Montag geschlossen',
+      weekdays: 'DI-FR: 9:00-12:00 | 14:00-18:30 Uhr',
+      saturday: 'SA: 9:00-16:00 durchgehend geöffnet',
+    },
   },
   {
     id: 'showroom-horgen',
@@ -34,10 +53,11 @@ const locations: Location[] = [
     title: 'Showroom Horgen bei Salottino',
     titleShort: 'Showroom Horgen',
     shortDescription: 'Unser Showroom in Horgen bei Salottino bietet Ihnen eine exklusive Einkaufserfahrung in ruhiger Atmosphäre.',
-    fullDescription: 'Entdecken Sie unser Showroom an der Seestrasse 159 in Horgen bei Salottino. Mit unserer Hilfe die Freude am bewussten Umgang mit Mode: Kombinieren Sie aktuelle Farb- und Fashiontrends geschickt mit Ihrem individuellen Kleiderstil. Wir zeigen Ihnen gerne, wie Sie Ihre bestehende Garderobe sinnvoll nutzen und clever mit Kleidern, Schuhen und Accessoires unserer angesagten Modelabels ergänzen.',
-    address: 'Seestrasse 159, Horgen',
+    fullDescription: 'Entdecken Sie unseren Showroom an der Seestrasse 159 in Horgen bei Salottino. Mit unserer Hilfe die Freude am bewussten Umgang mit Mode: Kombinieren Sie aktuelle Farb- und Fashiontrends geschickt mit Ihrem individuellen Kleiderstil. Wir zeigen Ihnen gerne, wie Sie Ihre bestehende Garderobe sinnvoll nutzen und clever mit Kleidern, Schuhen und Accessoires unserer angesagten Modelabels ergänzen.',
+    address: 'Seestrasse 159, 8810 Horgen',
     addressNote: 'Unser Showroom an der Seestrasse 159 in Horgen',
     lageplanHref: '#lageplan-horgen',
+    phone: '+41 79 576 09 22',
   },
 ]
 
@@ -53,7 +73,7 @@ export function LocationsGrid() {
     } else if (openParam === 'horgen') {
       setExpandedId('showroom-horgen')
     } else {
-      // Kein Parameter = Standard-Ansicht (beide geschlossen)
+      // Kein Parameter = Standard-Ansicht (alle geschlossen)
       setExpandedId(null)
     }
   }, [searchParams])
@@ -64,7 +84,7 @@ export function LocationsGrid() {
 
   return (
     <div className="relative">
-      {/* Grid: Beide Karten nebeneinander, aber unabhängige Höhen */}
+      {/* Grid: Beide Karten nebeneinander */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
         {locations.map((location) => {
           const isExpanded = expandedId === location.id
@@ -143,6 +163,43 @@ export function LocationsGrid() {
                   <p className="text-gray-600 font-light leading-relaxed mb-6 text-sm md:text-base">
                     {location.fullDescription}
                   </p>
+
+                  {/* Kontakt & Öffnungszeiten */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                    {/* Kontakt */}
+                    <div>
+                      <h4 className="text-sm font-medium text-gray-900 mb-3">Kontakt</h4>
+                      <div className="space-y-2 text-sm text-gray-600 font-light">
+                        <p>{location.address}</p>
+                        {location.phone && (
+                          <p>
+                            <a href={`tel:${location.phone.replace(/\s/g, '')}`} className="hover:text-primary transition-colors">
+                              Telefon {location.phone}
+                            </a>
+                          </p>
+                        )}
+                        {location.email && (
+                          <p>
+                            <a href={`mailto:${location.email}`} className="hover:text-primary transition-colors">
+                              {location.email}
+                            </a>
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Öffnungszeiten */}
+                    {location.openingHours && (
+                      <div>
+                        <h4 className="text-sm font-medium text-gray-900 mb-3">Öffnungszeiten</h4>
+                        <div className="space-y-1 text-sm text-gray-600 font-light">
+                          <p>{location.openingHours.closed}</p>
+                          <p>{location.openingHours.weekdays}</p>
+                          <p>{location.openingHours.saturday}</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
 
                   <div className="pt-5 border-t border-gray-200/60">
                     <p className="text-gray-700 font-light text-sm">
