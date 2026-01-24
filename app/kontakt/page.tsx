@@ -56,7 +56,7 @@ export default function KontaktPage() {
 
               {/* Showroom Horgen */}
               <div className="pt-6 border-t border-gray-200/60">
-                <h3 className="text-sm font-medium text-primary uppercase tracking-wide mb-3">Showroom Pepper Fashion @Salottino</h3>
+                <h3 className="text-sm font-medium text-primary uppercase tracking-wide mb-3">Showroom Horgen</h3>
                 <div className="space-y-1 text-sm text-gray-600 font-light">
                   <p>
                     <a 

@@ -106,7 +106,7 @@ export function Navigation() {
             </Link>
             
             <Link href="/kontakt" className={`text-sm font-medium uppercase tracking-wider transition-colors duration-300 ${
-              isTransparent ? 'text-white hover:text-white/70' : 'text-gray-700 hover:text-primary'
+              isTransparent ? 'text-primary hover:text-primary/80' : 'text-primary hover:text-primary/80'
             }`}>
               Kontakt
             </Link>
@@ -172,7 +172,7 @@ export function Navigation() {
                 Modelabels
               </Link>
               <Link href="/kontakt" className={`text-sm font-medium uppercase tracking-wider transition-colors ${
-                isTransparent ? 'text-white hover:text-white/70' : 'text-gray-900 hover:text-primary'
+                isTransparent ? 'text-primary hover:text-primary/80' : 'text-primary hover:text-primary/80'
               }`}>
                 Kontakt
               </Link>
