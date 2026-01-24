@@ -76,57 +76,68 @@ export function NewsSection() {
         </div>
 
         {/* News Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
           {newsItems.map((item, index) => {
             const isExpanded = expandedItems.has(item.href)
             return (
               <article
                 key={index}
-                className="group bg-white p-6 md:p-8 border border-gray-200/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+                onClick={() => toggleExpand(item.href)}
+                className="group bg-white p-6 md:p-8 border border-gray-200/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col"
               >
                 {item.category && (
-                  <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase bg-primary/10 text-primary font-medium mb-4">
-                    {item.category}
-                  </span>
+                  <div className="flex justify-center mb-4">
+                    <span className="block w-full px-3 py-1 text-xs tracking-wider uppercase bg-primary/10 text-primary font-medium text-center">
+                      {item.category}
+                    </span>
+                  </div>
                 )}
-                <h3 className="text-lg md:text-xl text-gray-800 group-hover:text-primary transition-colors duration-300 font-display mb-3">
-                  {item.title}
-                </h3>
-                {item.date && (
+                
+                {/* Title with fixed min-height to align dates */}
+                <div className="min-h-[80px] mb-3 flex flex-col justify-between">
+                  <h3 className="text-lg md:text-xl text-gray-800 group-hover:text-primary transition-colors duration-300 font-display">
+                    {item.title}
+                  </h3>
+                </div>
+                
+                {/* Date - always at same position */}
+                {item.date ? (
                   <span className="text-sm font-light text-gray-500 block mb-4">
                     {item.date}
                   </span>
+                ) : (
+                  <div className="mb-4" />
                 )}
 
                 {/* Expandable Content */}
                 <div
                   style={{
-                    maxHeight: isExpanded ? '300px' : '0px',
+                    maxHeight: isExpanded ? '250px' : '0px',
                     opacity: isExpanded ? 1 : 0,
-                    transition: 'max-height 400ms ease, opacity 300ms ease',
+                    transition: 'max-height 500ms ease-in-out, opacity 400ms ease-in-out',
                     overflow: 'hidden',
                   }}
+                  className="mb-4"
                 >
-                  <p className="text-gray-600 font-light leading-relaxed text-sm mb-4">
+                  <p className="text-gray-600 font-light leading-relaxed text-sm">
                     {item.content}
                   </p>
                 </div>
 
-                {/* Toggle Button */}
-                <button
-                  onClick={() => toggleExpand(item.href)}
-                  className="inline-flex items-center gap-2 text-primary font-medium tracking-wide uppercase text-xs hover:gap-3 transition-all duration-300"
-                >
-                  {isExpanded ? 'Weniger anzeigen' : 'Mehr lesen'}
-                  <svg
-                    className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
+                {/* Toggle Button - immer unten links */}
+                <div className="mt-auto pt-2">
+                  <div className="inline-flex items-center gap-2 text-primary font-medium tracking-wide uppercase text-xs">
+                    {isExpanded ? 'Weniger anzeigen' : 'Mehr lesen'}
+                    <svg
+                      className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </div>
               </article>
             )
           })}

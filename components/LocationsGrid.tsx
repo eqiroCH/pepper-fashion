@@ -90,13 +90,13 @@ export function LocationsGrid() {
                     {location.titleShort}
                   </h2>
                   
-                  {/* Plus/X Button mit langsamer 45° Rotation */}
+                  {/* Plus/X Button mit langsamer Rotation */}
                   <button
                     className="shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center"
                     style={{
                       backgroundColor: isExpanded ? '#c44536' : 'rgba(196, 69, 54, 0.1)',
                       color: isExpanded ? 'white' : '#c44536',
-                      transform: isExpanded ? 'rotate(45deg) scale(1.15)' : 'rotate(0deg) scale(1)',
+                      transform: isExpanded ? 'rotate(135deg) scale(1.15)' : 'rotate(0deg) scale(1)',
                       transition: 'transform 2s cubic-bezier(0.22, 1, 0.36, 1), background-color 1s ease, color 1s ease',
                     }}
                   >

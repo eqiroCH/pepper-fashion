@@ -40,8 +40,8 @@ export default function TeamPage() {
               >
                 <div className="grid grid-cols-1 md:grid-cols-[1fr_320px] gap-7 md:gap-8 items-start">
                   <div className="space-y-3">
-                    <div className="inline-flex items-center rounded-full border border-gray-200 bg-fashion-cream/40 px-2.5 py-1">
-                      <span className="text-[11px] tracking-[0.18em] uppercase text-gray-600 font-light">
+                    <div className="inline-flex items-center rounded-full px-3 py-1 bg-primary/10">
+                      <span className="text-xs tracking-wider uppercase text-primary font-medium">
                         {m.rolle}
                       </span>
                     </div>

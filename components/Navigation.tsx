@@ -26,6 +26,16 @@ export function Navigation() {
     setIsOpen(false)
   }, [pathname])
 
+  const handleModelabelsClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isHome) {
+      e.preventDefault()
+      const element = document.getElementById('modelabels')
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }
+  }
+
   return (
     <header
       className={`z-50 transition-all duration-500 ${
@@ -61,35 +71,11 @@ export function Navigation() {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-10">
-            <Link href="/" className={`text-sm font-medium uppercase tracking-wider transition-colors duration-300 ${
+            <Link href="/standorte" className={`text-sm font-medium uppercase tracking-wider transition-colors duration-300 ${
               isTransparent ? 'text-white hover:text-white/70' : 'text-gray-700 hover:text-primary'
             }`}>
-              Willkommen
+              Standorte
             </Link>
-            
-            <div className="relative group">
-              <Link href="/standorte" className={`text-sm font-medium uppercase tracking-wider transition-colors duration-300 ${
-                isTransparent ? 'text-white hover:text-white/70' : 'text-gray-700 hover:text-primary'
-              }`}>
-                Standorte
-              </Link>
-              <div className="absolute left-0 mt-4 w-56 bg-white border border-gray-100 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                <div className="py-2">
-                  <a 
-                    href="/standorte?open=siebnen" 
-                    className="block px-6 py-3 text-sm text-gray-700 hover:bg-fashion-cream hover:text-primary transition-colors duration-200 font-light tracking-wide"
-                  >
-                    Pepper-Fashion Siebnen
-                  </a>
-                  <a 
-                    href="/standorte?open=horgen" 
-                    className="block px-6 py-3 text-sm text-gray-700 hover:bg-fashion-cream hover:text-primary transition-colors duration-200 font-light tracking-wide"
-                  >
-                    Showroom Horgen
-                  </a>
-                </div>
-              </div>
-            </div>
             
             <Link href="/team" className={`text-sm font-medium uppercase tracking-wider transition-colors duration-300 ${
               isTransparent ? 'text-white hover:text-white/70' : 'text-gray-700 hover:text-primary'
@@ -107,6 +93,16 @@ export function Navigation() {
               isTransparent ? 'text-white hover:text-white/70' : 'text-gray-700 hover:text-primary'
             }`}>
               Bildergalerie
+            </Link>
+            
+            <Link 
+              href="/#modelabels" 
+              onClick={handleModelabelsClick}
+              className={`text-sm font-medium uppercase tracking-wider transition-colors duration-300 ${
+                isTransparent ? 'text-white hover:text-white/70' : 'text-gray-700 hover:text-primary'
+              }`}
+            >
+              Modelabels
             </Link>
             
             <Link href="/kontakt" className={`text-sm font-medium uppercase tracking-wider transition-colors duration-300 ${
@@ -146,11 +142,6 @@ export function Navigation() {
             }`}
           >
             <div className="flex flex-col space-y-4">
-              <Link href="/" className={`text-sm font-medium uppercase tracking-wider transition-colors ${
-                isTransparent ? 'text-white hover:text-white/70' : 'text-gray-900 hover:text-primary'
-              }`}>
-                Willkommen
-              </Link>
               <Link href="/standorte" className={`text-sm font-medium uppercase tracking-wider transition-colors ${
                 isTransparent ? 'text-white hover:text-white/70' : 'text-gray-900 hover:text-primary'
               }`}>
@@ -170,6 +161,15 @@ export function Navigation() {
                 isTransparent ? 'text-white hover:text-white/70' : 'text-gray-900 hover:text-primary'
               }`}>
                 Bildergalerie
+              </Link>
+              <Link 
+                href="/#modelabels" 
+                onClick={handleModelabelsClick}
+                className={`text-sm font-medium uppercase tracking-wider transition-colors ${
+                  isTransparent ? 'text-white hover:text-white/70' : 'text-gray-900 hover:text-primary'
+                }`}
+              >
+                Modelabels
               </Link>
               <Link href="/kontakt" className={`text-sm font-medium uppercase tracking-wider transition-colors ${
                 isTransparent ? 'text-white hover:text-white/70' : 'text-gray-900 hover:text-primary'

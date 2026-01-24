@@ -9,6 +9,7 @@ interface NewsItem {
   href: string
   category: string
   year: number
+  content: string
 }
 
 const archivedNews: NewsItem[] = [
@@ -18,6 +19,7 @@ const archivedNews: NewsItem[] = [
     href: '/news/modetage-2025',
     category: 'Veranstaltungen',
     year: 2025,
+    content: 'Besuchen Sie uns an unseren Modetagen vom 27. bis 29. März 2025. Entdecken Sie die neuesten Kollektionen unserer angesagten Modelabels. Wir freuen uns auf Ihren Besuch!',
   },
   {
     date: '01.10.2024',
@@ -25,6 +27,7 @@ const archivedNews: NewsItem[] = [
     href: '/news/umzug-waedenswil',
     category: 'Firmennews',
     year: 2024,
+    content: 'Wir freuen uns, Ihnen mitteilen zu können, dass wir erfolgreich umgezogen sind. Unser neuer Standort bietet mehr Platz und eine noch bessere Einkaufserfahrung für unsere Kunden.',
   },
   {
     date: '17.09.2024',
@@ -32,6 +35,7 @@ const archivedNews: NewsItem[] = [
     href: '/news/umzug-waedenswil-2',
     category: 'Firmennews',
     year: 2024,
+    content: 'Wir ziehen weiter und freuen uns, Ihnen bald unseren neuen Standort präsentieren zu können. Weitere Informationen folgen in Kürze.',
   },
   {
     date: '20.07.2024',
@@ -39,6 +43,7 @@ const archivedNews: NewsItem[] = [
     href: '/news/sommeroeffnungszeiten-2024',
     category: 'Firmennews',
     year: 2024,
+    content: 'Während der Sommerferien gelten spezielle Öffnungszeiten. Bitte beachten Sie unsere geänderten Öffnungszeiten vom 22. Juli bis 3. August 2024.',
   },
   {
     date: '15.06.2024',
@@ -46,6 +51,7 @@ const archivedNews: NewsItem[] = [
     href: '/news/modeschau-horgen-2024',
     category: 'Veranstaltungen',
     year: 2024,
+    content: 'Lassen Sie sich von unserer Modeschau in Horgen inspirieren. Wir präsentieren die neuesten Trends und Kollektionen unserer Modelabels. Beginn: 16:30 Uhr.',
   },
   {
     date: '12.02.2024',
@@ -53,6 +59,7 @@ const archivedNews: NewsItem[] = [
     href: '/news/valentinstag-2024',
     category: 'Veranstaltungen',
     year: 2024,
+    content: 'Zum Valentinstag bieten wir Ihnen 14% Rabatt auf ausgewählte Artikel. Nutzen Sie diese Gelegenheit für ein besonderes Geschenk. Gültig am 13. und 14. Februar 2024.',
   },
   {
     date: '31.08.2023',
@@ -60,6 +67,7 @@ const archivedNews: NewsItem[] = [
     href: '/news/fashion-opening-2023',
     category: 'Veranstaltungen',
     year: 2023,
+    content: 'Feiern Sie mit uns die Eröffnung unserer neuen Kollektion. Bei einem Apéro präsentieren wir Ihnen die neuesten Trends. Donnerstag, 31. August 2023.',
   },
   {
     date: '30.06.2023',
@@ -67,6 +75,7 @@ const archivedNews: NewsItem[] = [
     href: '/news/little-italy-2023',
     category: 'Veranstaltungen',
     year: 2023,
+    content: 'Erleben Sie italienische Mode und mehr bei unserer Veranstaltung im Glettise. Freitag, 30. Juni 2023.',
   },
   {
     date: '01.04.2023',
@@ -74,6 +83,7 @@ const archivedNews: NewsItem[] = [
     href: '/news/10-jahre-2023',
     category: 'Firmennews',
     year: 2023,
+    content: 'Wir feiern 10 Jahre Mode Passion! Danken Sie mit uns auf eine erfolgreiche Zeit und entdecken Sie unsere Jubiläumsaktionen. Samstag, 1. April 2023.',
   },
   {
     date: '08.03.2023',
@@ -81,6 +91,7 @@ const archivedNews: NewsItem[] = [
     href: '/news/womens-day-2023',
     category: 'Veranstaltungen',
     year: 2023,
+    content: 'Zum Internationalen Frauentag feiern wir die Stärke und Eleganz der Frau. Besondere Aktionen und Beratung erwarten Sie. Mittwoch, 8. März 2023.',
   },
 ]
 
@@ -90,6 +101,7 @@ export default function NewsArchivPage() {
   }, [])
 
   const [selectedYear, setSelectedYear] = useState<number | 'Alle'>('Alle')
+  const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set())
 
   const filteredNews = selectedYear === 'Alle'
     ? archivedNews
@@ -98,6 +110,18 @@ export default function NewsArchivPage() {
   const filteredYears = selectedYear === 'Alle'
     ? years
     : [selectedYear as number]
+
+  const toggleExpand = (href: string) => {
+    setExpandedItems((prev) => {
+      const next = new Set(prev)
+      if (next.has(href)) {
+        next.delete(href)
+      } else {
+        next.add(href)
+      }
+      return next
+    })
+  }
 
   return (
     <div className="section-padding bg-white">
@@ -173,24 +197,57 @@ export default function NewsArchivPage() {
                   {year}
                 </h2>
                 <ul className="space-y-4">
-                  {yearNews.map((item, index) => (
-                    <li key={index}>
-                      <Link
-                        href={item.href}
-                        className="block rounded-xl border border-gray-200/60 bg-white p-5 md:p-6 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group"
-                      >
-                        <div className="flex items-center justify-between gap-4 mb-3">
-                          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs tracking-wider uppercase bg-primary/10 text-primary font-medium">
-                            {item.category}
-                          </span>
-                          <span className="text-sm text-gray-500 font-light">{item.date}</span>
-                        </div>
-                        <h3 className="text-lg md:text-xl text-gray-900 group-hover:text-primary transition-colors duration-300 font-display leading-snug">
-                          {item.title}
-                        </h3>
-                      </Link>
-                    </li>
-                  ))}
+                  {yearNews.map((item, index) => {
+                    const isExpanded = expandedItems.has(item.href)
+                    return (
+                      <li key={index}>
+                        <article
+                          onClick={() => toggleExpand(item.href)}
+                          className="block rounded-xl border border-gray-200/60 bg-white p-5 md:p-6 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col"
+                        >
+                          <div className="flex items-center justify-between gap-4 mb-3">
+                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs tracking-wider uppercase bg-primary/10 text-primary font-medium">
+                              {item.category}
+                            </span>
+                            <span className="text-sm text-gray-500 font-light">{item.date}</span>
+                          </div>
+                          <h3 className="text-lg md:text-xl text-gray-900 group-hover:text-primary transition-colors duration-300 font-display leading-snug mb-4 flex-grow">
+                            {item.title}
+                          </h3>
+
+                          {/* Expandable Content */}
+                          <div
+                            style={{
+                              maxHeight: isExpanded ? '250px' : '0px',
+                              opacity: isExpanded ? 1 : 0,
+                              transition: 'max-height 500ms ease-in-out, opacity 400ms ease-in-out',
+                              overflow: 'hidden',
+                            }}
+                            className="mb-4"
+                          >
+                            <p className="text-gray-600 font-light leading-relaxed text-sm">
+                              {item.content}
+                            </p>
+                          </div>
+
+                          {/* Toggle Button - immer unten links */}
+                          <div className="mt-auto">
+                            <div className="inline-flex items-center gap-2 text-primary font-medium tracking-wide uppercase text-xs">
+                              {isExpanded ? 'Weniger anzeigen' : 'Mehr lesen'}
+                              <svg
+                                className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                              >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                              </svg>
+                            </div>
+                          </div>
+                        </article>
+                      </li>
+                    )
+                  })}
                 </ul>
               </div>
             )

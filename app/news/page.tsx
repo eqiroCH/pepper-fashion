@@ -172,7 +172,8 @@ export default function NewsPage() {
               return (
                 <article
                   key={`${item.href}-${index}`}
-                  className="group rounded-2xl bg-white border border-gray-200/60 p-6 md:p-7 hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+                  onClick={() => toggleExpand(item.href)}
+                  className="group rounded-2xl bg-white border border-gray-200/60 p-6 md:p-7 hover:border-primary/30 hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col"
                 >
                   <div className="flex items-center justify-between gap-4 mb-4">
                     <span className="inline-flex items-center px-3 py-1 rounded-full text-xs tracking-wider uppercase bg-primary/10 text-primary font-medium">
@@ -181,39 +182,39 @@ export default function NewsPage() {
                     <span className="text-sm text-gray-500 font-light">{item.date}</span>
                   </div>
 
-                  <h2 className="text-xl md:text-2xl text-gray-900 group-hover:text-primary transition-colors duration-300 font-display leading-snug mb-4">
+                  <h2 className="text-xl md:text-2xl text-gray-900 group-hover:text-primary transition-colors duration-300 font-display leading-snug mb-4 flex-grow">
                     {item.title}
                   </h2>
 
                   {/* Expandable Content */}
                   <div
                     style={{
-                      maxHeight: isExpanded ? '500px' : '0px',
+                      maxHeight: isExpanded ? '250px' : '0px',
                       opacity: isExpanded ? 1 : 0,
-                      transition: 'max-height 400ms ease, opacity 300ms ease',
+                      transition: 'max-height 500ms ease-in-out, opacity 400ms ease-in-out',
                       overflow: 'hidden',
                     }}
+                    className="mb-4"
                   >
-                    <p className="text-gray-600 font-light leading-relaxed text-sm md:text-base mb-4">
+                    <p className="text-gray-600 font-light leading-relaxed text-sm md:text-base">
                       {item.content}
                     </p>
                   </div>
 
-                  {/* Toggle Button */}
-                  <button
-                    onClick={() => toggleExpand(item.href)}
-                    className="mt-4 inline-flex items-center gap-2 text-primary font-medium tracking-wide uppercase text-xs hover:gap-3 transition-all duration-300"
-                  >
-                    {isExpanded ? 'Weniger anzeigen' : 'Mehr lesen'}
-                    <svg
-                      className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
+                  {/* Toggle Button - immer unten links */}
+                  <div className="mt-auto">
+                    <div className="inline-flex items-center gap-2 text-primary font-medium tracking-wide uppercase text-xs">
+                      {isExpanded ? 'Weniger anzeigen' : 'Mehr lesen'}
+                      <svg
+                        className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </div>
                 </article>
               )
             })}
