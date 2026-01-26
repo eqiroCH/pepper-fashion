@@ -22,7 +22,6 @@ export function Footer() {
                   { name: 'Kontakt', href: '/kontakt' },
                   { name: 'Datenschutz', href: '/datenschutz' },
                   { name: 'Impressum', href: '/impressum' },
-                  { name: 'Anmelden', href: '/anmelden' },
                 ].map((link) => (
                   <li key={link.name}>
                     <a
