@@ -128,20 +128,20 @@ export default function NewsArchivPage() {
       <div className="container-custom">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
-          <div className="mb-5">
-            <h1 className="heading-1 mb-2.5 text-center">News Archiv</h1>
-            <p className="text-base md:text-lg text-gray-600 font-light max-w-2xl mx-auto text-center">
+          <div className="mb-4 md:mb-5">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-display font-normal tracking-tight text-gray-900 mb-2 md:mb-2.5 text-center">News Archiv</h1>
+            <p className="text-xs md:text-base lg:text-lg text-gray-600 font-light max-w-2xl mx-auto text-center">
               Alle vergangenen Veranstaltungen, Firmennews und Updates im Überblick.
             </p>
           </div>
 
           {/* Year Filter Pills */}
-          <div className="mb-10">
-            <div className="flex flex-wrap gap-2 justify-center">
+          <div className="mb-4 md:mb-10">
+            <div className="flex flex-wrap gap-1.5 md:gap-2 justify-center">
               <button
                 type="button"
                 onClick={() => setSelectedYear('Alle')}
-                className={`px-4 py-2 rounded-full border text-sm font-light transition-all duration-300 ${
+                className={`px-2.5 py-1 md:px-4 md:py-2 rounded-full border text-[10px] md:text-sm font-light transition-all duration-300 ${
                   selectedYear === 'Alle'
                     ? 'bg-primary text-white border-primary'
                     : 'bg-white text-gray-700 border-gray-200 hover:border-primary/40 hover:text-primary'
@@ -154,7 +154,7 @@ export default function NewsArchivPage() {
                   key={year}
                   type="button"
                   onClick={() => setSelectedYear(year)}
-                  className={`px-4 py-2 rounded-full border text-sm font-light transition-all duration-300 ${
+                  className={`px-2.5 py-1 md:px-4 md:py-2 rounded-full border text-[10px] md:text-sm font-light transition-all duration-300 ${
                     selectedYear === year
                       ? 'bg-primary text-white border-primary'
                       : 'bg-white text-gray-700 border-gray-200 hover:border-primary/40 hover:text-primary'
@@ -166,20 +166,20 @@ export default function NewsArchivPage() {
             </div>
 
             {/* Rückblick / Aktuelle News Leiste */}
-            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-4">
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-px bg-primary/60" />
-                <span className="text-xs tracking-widest uppercase text-primary font-medium">
+            <div className="mt-4 md:mt-6 flex flex-row items-center justify-between gap-2 md:gap-4">
+              <div className="flex items-center gap-2 md:gap-4">
+                <div className="w-4 md:w-10 h-px bg-primary/60" />
+                <span className="text-[10px] md:text-xs tracking-widest uppercase text-primary font-medium">
                   Rückblick
                 </span>
               </div>
 
               <Link
                 href="/news"
-                className="inline-flex items-center gap-2 text-primary font-medium tracking-wide uppercase text-sm hover:gap-4 transition-all duration-300"
+                className="inline-flex items-center gap-1 md:gap-2 text-primary font-medium tracking-wide uppercase text-[10px] md:text-sm hover:gap-4 transition-all duration-300"
               >
                 Aktuelle News
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-3 h-3 md:w-4 md:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
@@ -192,63 +192,63 @@ export default function NewsArchivPage() {
             if (yearNews.length === 0) return null
 
             return (
-              <div key={year} className="mb-12">
-                <h2 className="text-xl md:text-2xl font-display font-normal tracking-tight text-primary mb-6">
+              <div key={year} className="mb-6 md:mb-12">
+                <h2 className="text-lg md:text-xl lg:text-2xl font-display font-normal tracking-tight text-primary mb-3 md:mb-6">
                   {year}
                 </h2>
-                <ul className="space-y-4">
+                <div className={`grid gap-2 md:gap-4 ${yearNews.length === 1 ? 'grid-cols-1' : 'grid-cols-2'}`}>
                   {yearNews.map((item, index) => {
                     const isExpanded = expandedItems.has(item.href)
                     return (
-                      <li key={index}>
-                        <article
-                          onClick={() => toggleExpand(item.href)}
-                          className="block rounded-xl border border-gray-200/60 bg-white p-5 md:p-6 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col"
+                      <article
+                        key={index}
+                        onClick={() => toggleExpand(item.href)}
+                        className="block rounded-lg md:rounded-xl border border-gray-200/60 bg-white p-3 md:p-5 lg:p-6 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col"
+                      >
+                        <div className="flex items-center justify-between gap-1 md:gap-4 mb-2 md:mb-3">
+                          <span className="inline-flex items-center px-1.5 py-0.5 md:px-3 md:py-1 rounded-full text-[8px] md:text-xs tracking-wider uppercase bg-primary/10 text-primary font-medium">
+                            {item.category}
+                          </span>
+                          <span className="text-[8px] md:text-sm text-gray-500 font-light">{item.date}</span>
+                        </div>
+                        <h3 className="text-xs md:text-lg lg:text-xl text-gray-900 group-hover:text-primary transition-colors duration-300 font-display leading-tight md:leading-snug mb-2 md:mb-4 flex-grow">
+                          {item.title}
+                        </h3>
+
+                        {/* Expandable Content - hidden on mobile */}
+                        <div
+                          style={{
+                            maxHeight: isExpanded ? '250px' : '0px',
+                            opacity: isExpanded ? 1 : 0,
+                            transition: 'max-height 500ms ease-in-out, opacity 400ms ease-in-out',
+                            overflow: 'hidden',
+                          }}
+                          className="mb-2 md:mb-4 hidden md:block"
                         >
-                          <div className="flex items-center justify-between gap-4 mb-3">
-                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs tracking-wider uppercase bg-primary/10 text-primary font-medium">
-                              {item.category}
-                            </span>
-                            <span className="text-sm text-gray-500 font-light">{item.date}</span>
-                          </div>
-                          <h3 className="text-lg md:text-xl text-gray-900 group-hover:text-primary transition-colors duration-300 font-display leading-snug mb-4 flex-grow">
-                            {item.title}
-                          </h3>
+                          <p className="text-gray-600 font-light leading-relaxed text-sm">
+                            {item.content}
+                          </p>
+                        </div>
 
-                          {/* Expandable Content */}
-                          <div
-                            style={{
-                              maxHeight: isExpanded ? '250px' : '0px',
-                              opacity: isExpanded ? 1 : 0,
-                              transition: 'max-height 500ms ease-in-out, opacity 400ms ease-in-out',
-                              overflow: 'hidden',
-                            }}
-                            className="mb-4"
-                          >
-                            <p className="text-gray-600 font-light leading-relaxed text-sm">
-                              {item.content}
-                            </p>
+                        {/* Toggle Button - immer unten links */}
+                        <div className="mt-auto">
+                          <div className="inline-flex items-center gap-1 md:gap-2 text-primary font-medium tracking-wide uppercase text-[8px] md:text-xs">
+                            <span className="hidden md:inline">{isExpanded ? 'Weniger anzeigen' : 'Mehr lesen'}</span>
+                            <span className="md:hidden">Mehr</span>
+                            <svg
+                              className={`w-2 h-2 md:w-4 md:h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
                           </div>
-
-                          {/* Toggle Button - immer unten links */}
-                          <div className="mt-auto">
-                            <div className="inline-flex items-center gap-2 text-primary font-medium tracking-wide uppercase text-xs">
-                              {isExpanded ? 'Weniger anzeigen' : 'Mehr lesen'}
-                              <svg
-                                className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                              >
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                              </svg>
-                            </div>
-                          </div>
-                        </article>
-                      </li>
+                        </div>
+                      </article>
                     )
                   })}
-                </ul>
+                </div>
               </div>
             )
           })}

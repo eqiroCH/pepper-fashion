@@ -54,64 +54,64 @@ export function NewsSection() {
     <section className="bg-fashion-beige/50 section-padding">
       <div className="container-custom">
         {/* Header */}
-        <div className="mb-12">
-          <h2 className="heading-2 text-center mb-10">News & Events</h2>
+        <div className="mb-6 md:mb-12">
+          <h2 className="text-xl md:text-3xl lg:text-4xl font-display font-normal tracking-tight text-gray-900 text-center mb-4 md:mb-10">News & Events</h2>
         </div>
         
         {/* Aktuelles & Alle News - direkt über den Karten */}
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-4">
-              <div className="w-8 h-px bg-primary" />
-              <span className="text-xs tracking-widest uppercase text-primary font-medium">
+        <div className="flex items-center justify-between mb-4 md:mb-6">
+          <div className="flex items-center gap-2 md:gap-4">
+              <div className="w-4 md:w-8 h-px bg-primary" />
+              <span className="text-[10px] md:text-xs tracking-widest uppercase text-primary font-medium">
                 Aktuelles
               </span>
           </div>
           <Link 
             href="/news" 
-            className="hidden md:inline-flex items-center gap-2 text-primary font-medium tracking-wide uppercase text-sm hover:gap-4 transition-all duration-300"
+            className="inline-flex items-center gap-1 md:gap-2 text-primary font-medium tracking-wide uppercase text-[10px] md:text-sm hover:gap-4 transition-all duration-300"
           >
             Alle News
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-3 h-3 md:w-4 md:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
         </div>
 
         {/* News Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+        <div className="grid grid-cols-3 gap-2 md:gap-6 items-start">
           {newsItems.map((item, index) => {
             const isExpanded = expandedItems.has(item.href)
             return (
               <article
                 key={index}
                 onClick={() => toggleExpand(item.href)}
-                className="group bg-white p-6 md:p-8 border border-gray-200/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col"
+                className="group bg-white p-2 md:p-6 lg:p-8 border border-gray-200/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col rounded-lg md:rounded-none"
               >
                 {item.category && (
-                  <div className="flex justify-center mb-4">
-                    <span className="block w-full px-3 py-1 text-xs tracking-wider uppercase bg-primary/10 text-primary font-medium text-center">
+                  <div className="flex justify-center mb-2 md:mb-4">
+                    <span className="block w-full px-1 md:px-3 py-0.5 md:py-1 text-[8px] md:text-xs tracking-wider uppercase bg-primary/10 text-primary font-medium text-center">
                       {item.category}
                     </span>
                   </div>
                 )}
                 
                 {/* Title with fixed min-height to align dates */}
-                <div className="min-h-[80px] mb-3 flex flex-col justify-between">
-                  <h3 className="text-lg md:text-xl text-gray-800 group-hover:text-primary transition-colors duration-300 font-display">
+                <div className="min-h-[40px] md:min-h-[80px] mb-1 md:mb-3 flex flex-col justify-between">
+                  <h3 className="text-[10px] md:text-lg lg:text-xl text-gray-800 group-hover:text-primary transition-colors duration-300 font-display leading-tight">
                     {item.title}
                   </h3>
                 </div>
                 
                 {/* Date - always at same position */}
                 {item.date ? (
-                  <span className="text-sm font-light text-gray-500 block mb-4">
+                  <span className="text-[8px] md:text-sm font-light text-gray-500 block mb-2 md:mb-4">
                     {item.date}
                   </span>
                 ) : (
-                  <div className="mb-4" />
+                  <div className="mb-2 md:mb-4" />
                 )}
 
-                {/* Expandable Content */}
+                {/* Expandable Content - hidden on mobile */}
                 <div
                   style={{
                     maxHeight: isExpanded ? '250px' : '0px',
@@ -119,7 +119,7 @@ export function NewsSection() {
                     transition: 'max-height 500ms ease-in-out, opacity 400ms ease-in-out',
                     overflow: 'hidden',
                   }}
-                  className="mb-4"
+                  className="mb-2 md:mb-4 hidden md:block"
                 >
                   <p className="text-gray-600 font-light leading-relaxed text-sm">
                     {item.content}
@@ -127,11 +127,12 @@ export function NewsSection() {
                 </div>
 
                 {/* Toggle Button - immer unten links */}
-                <div className="mt-auto pt-2">
-                  <div className="inline-flex items-center gap-2 text-primary font-medium tracking-wide uppercase text-xs">
-                    {isExpanded ? 'Weniger anzeigen' : 'Mehr lesen'}
+                <div className="mt-auto pt-1 md:pt-2">
+                  <div className="inline-flex items-center gap-1 md:gap-2 text-primary font-medium tracking-wide uppercase text-[8px] md:text-xs">
+                    <span className="hidden md:inline">{isExpanded ? 'Weniger anzeigen' : 'Mehr lesen'}</span>
+                    <span className="md:hidden">Mehr</span>
                     <svg
-                      className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                      className={`w-2 h-2 md:w-4 md:h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -146,13 +147,13 @@ export function NewsSection() {
         </div>
 
         {/* Mobile CTA */}
-        <div className="mt-8 text-center md:hidden">
+        <div className="mt-4 md:mt-8 text-center md:hidden">
           <Link 
             href="/news" 
-            className="inline-flex items-center gap-2 text-primary font-medium tracking-wide uppercase text-sm"
+            className="inline-flex items-center gap-1 text-primary font-medium tracking-wide uppercase text-[10px]"
           >
-            Alle News anzeigen
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            Alle News
+            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>

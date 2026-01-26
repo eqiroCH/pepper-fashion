@@ -25,9 +25,9 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-3 md:space-y-6">
       <div>
-        <label htmlFor="name" className="block text-sm font-light text-gray-700 mb-2">
+        <label htmlFor="name" className="block text-xs md:text-sm font-light text-gray-700 mb-1 md:mb-2">
           Name *
         </label>
         <input
@@ -37,12 +37,12 @@ export function ContactForm() {
           required
           value={formData.name}
           onChange={handleChange}
-          className="w-full px-4 py-2.5 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all duration-300 font-light"
+          className="w-full px-3 md:px-4 py-2 md:py-2.5 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all duration-300 font-light text-sm md:text-base"
         />
       </div>
 
       <div>
-        <label htmlFor="firma" className="block text-sm font-light text-gray-700 mb-2">
+        <label htmlFor="firma" className="block text-xs md:text-sm font-light text-gray-700 mb-1 md:mb-2">
           Firma (optional)
         </label>
         <input
@@ -51,12 +51,12 @@ export function ContactForm() {
           name="firma"
           value={formData.firma}
           onChange={handleChange}
-          className="w-full px-4 py-2.5 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all duration-300 font-light"
+          className="w-full px-3 md:px-4 py-2 md:py-2.5 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all duration-300 font-light text-sm md:text-base"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-light text-gray-700 mb-2">
+        <label htmlFor="email" className="block text-xs md:text-sm font-light text-gray-700 mb-1 md:mb-2">
           E-Mail *
         </label>
         <input
@@ -66,27 +66,27 @@ export function ContactForm() {
           required
           value={formData.email}
           onChange={handleChange}
-          className="w-full px-4 py-2.5 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all duration-300 font-light"
+          className="w-full px-3 md:px-4 py-2 md:py-2.5 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all duration-300 font-light text-sm md:text-base"
         />
       </div>
 
       <div>
-        <label htmlFor="bemerkung" className="block text-sm font-light text-gray-700 mb-2">
+        <label htmlFor="bemerkung" className="block text-xs md:text-sm font-light text-gray-700 mb-1 md:mb-2">
           Bemerkung *
         </label>
         <textarea
           id="bemerkung"
           name="bemerkung"
           required
-          rows={5}
+          rows={3}
           value={formData.bemerkung}
           onChange={handleChange}
-          className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all duration-300 resize-vertical font-light"
+          className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all duration-300 resize-vertical font-light text-sm md:text-base md:rows-5"
         />
       </div>
 
-      <div className="flex gap-4 pt-4">
-        <button type="submit" className="btn-primary w-full">
+      <div className="flex gap-4 pt-2 md:pt-4">
+        <button type="submit" className="btn-primary w-full text-sm md:text-base py-2 md:py-3">
           Absenden
         </button>
       </div>

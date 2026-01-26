@@ -120,12 +120,12 @@ export function GallerySection() {
   return (
     <>
       {/* Filter Pills */}
-      <div className="flex flex-wrap gap-3 justify-center mb-12">
+      <div className="flex flex-wrap gap-1.5 md:gap-3 justify-center mb-4 md:mb-12">
         {categories.map((cat) => (
           <button
             key={cat.id}
             onClick={() => setSelectedCategory(cat.id)}
-            className={`px-5 py-2.5 rounded-full text-sm font-medium tracking-wide uppercase transition-all duration-300 ${
+            className={`px-2.5 py-1 md:px-5 md:py-2.5 rounded-full text-[10px] md:text-sm font-medium tracking-wide uppercase transition-all duration-300 ${
               selectedCategory === cat.id
                 ? 'bg-primary text-white shadow-lg shadow-primary/25'
                 : 'bg-white text-gray-600 border border-gray-200 hover:border-primary/40 hover:text-primary'
@@ -137,7 +137,7 @@ export function GallerySection() {
       </div>
 
       {/* Masonry-Style Grid */}
-      <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+      <div className="columns-2 md:columns-2 lg:columns-3 gap-2 md:gap-6 space-y-2 md:space-y-6">
         {filteredItems.map((item, index) => (
           <div
             key={item.id}
@@ -149,7 +149,7 @@ export function GallerySection() {
             }}
           >
             <div
-              className={`relative ${getAspectClass(item.aspectRatio)} overflow-hidden rounded-2xl cursor-pointer group`}
+              className={`relative ${getAspectClass(item.aspectRatio)} overflow-hidden rounded-lg md:rounded-2xl cursor-pointer group`}
               onMouseEnter={() => setHoveredItem(item.id)}
               onMouseLeave={() => setHoveredItem(null)}
               onClick={() => setSelectedItem(item)}
@@ -206,20 +206,20 @@ export function GallerySection() {
 
               {/* Content Overlay */}
               <div 
-                className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5 md:p-6"
+                className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-2 md:p-5 lg:p-6"
                 style={{
                   opacity: hoveredItem === item.id ? 1 : 0.9,
                   transition: 'opacity 0.3s ease',
                 }}
               >
                 {/* Category Tag */}
-                <span className="inline-flex self-start items-center px-3 py-1 rounded-full text-[10px] tracking-wider uppercase bg-white/20 text-white/90 font-medium backdrop-blur-sm mb-3">
+                <span className="inline-flex self-start items-center px-1.5 py-0.5 md:px-3 md:py-1 rounded-full text-[7px] md:text-[10px] tracking-wider uppercase bg-white/20 text-white/90 font-medium backdrop-blur-sm mb-1 md:mb-3">
                   {getCategoryLabel(item.category)}
                 </span>
                 
                 {/* Title */}
                 <h3 
-                  className="text-lg md:text-xl font-display text-white leading-tight"
+                  className="text-[10px] md:text-lg lg:text-xl font-display text-white leading-tight"
                   style={{
                     transform: hoveredItem === item.id ? 'translateY(0)' : 'translateY(4px)',
                     transition: 'transform 0.3s ease',
@@ -230,12 +230,12 @@ export function GallerySection() {
                 
                 {/* Year */}
                 {item.year && (
-                  <span className="text-white/60 text-sm font-light mt-1">{item.year}</span>
+                  <span className="text-white/60 text-[8px] md:text-sm font-light mt-0.5 md:mt-1">{item.year}</span>
                 )}
 
-                {/* View Button */}
+                {/* View Button - hidden on mobile */}
                 <div 
-                  className="mt-4 flex items-center gap-2 text-white/80 text-xs uppercase tracking-wider font-medium"
+                  className="mt-2 md:mt-4 hidden md:flex items-center gap-2 text-white/80 text-xs uppercase tracking-wider font-medium"
                   style={{
                     opacity: hoveredItem === item.id ? 1 : 0,
                     transform: hoveredItem === item.id ? 'translateY(0)' : 'translateY(10px)',

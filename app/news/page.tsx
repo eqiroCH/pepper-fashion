@@ -115,16 +115,16 @@ export default function NewsPage() {
       <div className="container-custom">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
-          <div className="mb-5">
-            <h1 className="heading-1 mb-2.5 text-center">News</h1>
-            <p className="text-base md:text-lg text-gray-600 font-light max-w-2xl mx-auto text-center">
+          <div className="mb-4 md:mb-5">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-display font-normal tracking-tight text-gray-900 mb-2 md:mb-2.5 text-center">News</h1>
+            <p className="text-xs md:text-base lg:text-lg text-gray-600 font-light max-w-2xl mx-auto text-center">
               Veranstaltungen, Firmennews und Updates – alles auf einen Blick.
             </p>
           </div>
 
           {/* Category Filter */}
-          <div className="mb-6">
-            <div className="flex flex-wrap gap-2 justify-center">
+          <div className="mb-4 md:mb-6">
+            <div className="flex flex-wrap gap-1.5 md:gap-2 justify-center">
               {categories.map((cat) => {
                 const active = cat === selectedCategory
                 return (
@@ -133,7 +133,7 @@ export default function NewsPage() {
                     type="button"
                     onClick={() => setSelectedCategory(cat)}
                     aria-pressed={active}
-                    className={`px-4 py-2 rounded-full border text-sm font-light transition-all duration-300 ${
+                    className={`px-2.5 py-1 md:px-4 md:py-2 rounded-full border text-[10px] md:text-sm font-light transition-all duration-300 ${
                       active
                         ? 'bg-primary text-white border-primary'
                         : 'bg-white text-gray-700 border-gray-200 hover:border-primary/40 hover:text-primary'
@@ -147,47 +147,47 @@ export default function NewsPage() {
           </div>
 
           {/* Aktuelles & Archiv Link */}
-          <div className="mb-10 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-4">
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-px bg-primary/60" />
-              <span className="text-xs tracking-widest uppercase text-primary font-medium">
+          <div className="mb-4 md:mb-10 flex flex-row items-center justify-between gap-2 md:gap-4">
+            <div className="flex items-center gap-2 md:gap-4">
+              <div className="w-4 md:w-10 h-px bg-primary/60" />
+              <span className="text-[10px] md:text-xs tracking-widest uppercase text-primary font-medium">
                 Aktuelles
               </span>
             </div>
 
             <Link
               href="/news/archiv"
-              className="inline-flex items-center gap-2 text-primary font-medium tracking-wide uppercase text-sm hover:gap-4 transition-all duration-300"
+              className="inline-flex items-center gap-1 md:gap-2 text-primary font-medium tracking-wide uppercase text-[10px] md:text-sm hover:gap-4 transition-all duration-300"
             >
               Zum Archiv
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-3 h-3 md:w-4 md:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
           </div>
 
           {/* News Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-2 md:gap-6">
             {filteredNews.map((item, index) => {
               const isExpanded = expandedItems.has(item.href)
               return (
                 <article
                   key={`${item.href}-${index}`}
                   onClick={() => toggleExpand(item.href)}
-                  className="group rounded-2xl bg-white border border-gray-200/60 p-6 md:p-7 hover:border-primary/30 hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col"
+                  className="group rounded-xl md:rounded-2xl bg-white border border-gray-200/60 p-3 md:p-6 lg:p-7 hover:border-primary/30 hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col"
                 >
-                  <div className="flex items-center justify-between gap-4 mb-4">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs tracking-wider uppercase bg-primary/10 text-primary font-medium">
+                  <div className="flex items-center justify-between gap-1 md:gap-4 mb-2 md:mb-4">
+                    <span className="inline-flex items-center px-1.5 py-0.5 md:px-3 md:py-1 rounded-full text-[8px] md:text-xs tracking-wider uppercase bg-primary/10 text-primary font-medium">
                       {item.category}
                     </span>
-                    <span className="text-sm text-gray-500 font-light">{item.date}</span>
+                    <span className="text-[8px] md:text-sm text-gray-500 font-light">{item.date}</span>
                   </div>
 
-                  <h2 className="text-xl md:text-2xl text-gray-900 group-hover:text-primary transition-colors duration-300 font-display leading-snug mb-4 flex-grow">
+                  <h2 className="text-xs md:text-xl lg:text-2xl text-gray-900 group-hover:text-primary transition-colors duration-300 font-display leading-tight md:leading-snug mb-2 md:mb-4 flex-grow">
                     {item.title}
                   </h2>
 
-                  {/* Expandable Content */}
+                  {/* Expandable Content - hidden on mobile */}
                   <div
                     style={{
                       maxHeight: isExpanded ? '250px' : '0px',
@@ -195,7 +195,7 @@ export default function NewsPage() {
                       transition: 'max-height 500ms ease-in-out, opacity 400ms ease-in-out',
                       overflow: 'hidden',
                     }}
-                    className="mb-4"
+                    className="mb-2 md:mb-4 hidden md:block"
                   >
                     <p className="text-gray-600 font-light leading-relaxed text-sm md:text-base">
                       {item.content}
@@ -204,10 +204,11 @@ export default function NewsPage() {
 
                   {/* Toggle Button - immer unten links */}
                   <div className="mt-auto">
-                    <div className="inline-flex items-center gap-2 text-primary font-medium tracking-wide uppercase text-xs">
-                      {isExpanded ? 'Weniger anzeigen' : 'Mehr lesen'}
+                    <div className="inline-flex items-center gap-1 md:gap-2 text-primary font-medium tracking-wide uppercase text-[8px] md:text-xs">
+                      <span className="hidden md:inline">{isExpanded ? 'Weniger anzeigen' : 'Mehr lesen'}</span>
+                      <span className="md:hidden">Mehr</span>
                       <svg
-                        className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                        className={`w-2 h-2 md:w-4 md:h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"

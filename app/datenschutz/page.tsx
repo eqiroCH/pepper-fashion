@@ -9,20 +9,20 @@ export default function DatenschutzPage() {
   return (
     <div className="section-padding bg-white">
       <div className="container-custom">
-        <div className="mb-12">
-          <nav className="text-sm text-gray-500 font-light mb-8">
+        <div className="mb-6 md:mb-12">
+          <nav className="text-xs md:text-sm text-gray-500 font-light mb-4 md:mb-8">
             <Link href="/" className="hover:text-primary transition-colors">
               Home
             </Link>
-            <span className="mx-2">›</span>
+            <span className="mx-1 md:mx-2">›</span>
             <span className="text-gray-700">Datenschutz</span>
           </nav>
         </div>
 
         <div className="max-w-4xl">
-          <h1 className="heading-1 mb-12">Datenschutz</h1>
+          <h1 className="heading-1 mb-6 md:mb-12">Datenschutz</h1>
 
-          <div className="space-y-10 text-body">
+          <div className="space-y-6 md:space-y-10 text-body">
             <section className="space-y-4">
               <h2 className="heading-2">Allgemein</h2>
               <p className="leading-relaxed">

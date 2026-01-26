@@ -69,25 +69,23 @@ export function ModelabelsCarousel() {
   const duplicatedLabels = [...modelabels, ...modelabels, ...modelabels]
 
   return (
-    <div className="relative overflow-hidden bg-fashion-cream/20 py-16">
+    <div className="relative overflow-hidden bg-fashion-cream/20 py-8 md:py-16">
       <div className="container-custom">
-        <h2 className="heading-2 mb-12 text-center">Modelabels</h2>
+        <h2 className="text-xl md:text-3xl lg:text-4xl font-display font-normal tracking-tight text-gray-900 mb-6 md:mb-12 text-center">Modelabels</h2>
         
         <div className="relative">
           {/* Fade-Effekte links und rechts */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-fashion-cream/20 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-fashion-cream/20 to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-fashion-cream/20 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-fashion-cream/20 to-transparent z-10 pointer-events-none" />
           
           <div
             ref={scrollContainerRef}
-            className="flex gap-20 items-center overflow-x-hidden scroll-smooth"
+            className="flex gap-8 md:gap-20 items-center overflow-x-hidden scroll-smooth"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {duplicatedLabels.map((label, index) => (
               <div
                 key={`${label.name}-${index}`}
-                className="flex-shrink-0 flex items-center justify-center"
-                style={{ width: '300px', height: '160px', padding: '20px' }}
               >
                 {label.url ? (
                   <a
@@ -109,7 +107,7 @@ export function ModelabelsCarousel() {
                         alt={label.alt}
                         fill
                         className="object-contain"
-                        sizes="260px"
+                        sizes="(max-width: 768px) 100px, 260px"
                         onError={(e) => {
                           // Fallback wenn Bild nicht existiert
                           const target = e.target as HTMLImageElement
@@ -128,7 +126,7 @@ export function ModelabelsCarousel() {
                       alt={label.alt}
                       fill
                       className="object-contain"
-                      sizes="260px"
+                      sizes="(max-width: 768px) 100px, 260px"
                       onError={(e) => {
                         // Fallback wenn Bild nicht existiert
                         const target = e.target as HTMLImageElement

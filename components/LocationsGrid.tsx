@@ -85,7 +85,7 @@ export function LocationsGrid() {
   return (
     <div className="relative">
       {/* Grid: Beide Karten nebeneinander */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 items-start">
         {locations.map((location) => {
           const isExpanded = expandedId === location.id
 
@@ -93,7 +93,7 @@ export function LocationsGrid() {
             <article
               key={location.id}
               id={location.id}
-              className="relative overflow-hidden bg-white border rounded-2xl border-gray-200/60 hover:shadow-lg"
+              className="relative overflow-hidden bg-white border rounded-xl md:rounded-2xl border-gray-200/60 hover:shadow-lg"
               style={{
                 boxShadow: isExpanded ? '0 25px 50px -12px rgba(0, 0, 0, 0.15)' : undefined,
                 borderColor: isExpanded ? 'rgba(196, 69, 54, 0.3)' : undefined,
@@ -103,16 +103,16 @@ export function LocationsGrid() {
               {/* Header - immer sichtbar */}
               <div 
                 onClick={() => handleToggle(location.id)}
-                className="p-6 md:p-8 cursor-pointer"
+                className="p-4 md:p-6 lg:p-8 cursor-pointer"
               >
-                <div className="flex items-start justify-between gap-4 mb-3">
-                  <h2 className="text-xl md:text-2xl font-display text-gray-900">
+                <div className="flex items-start justify-between gap-2 md:gap-4 mb-2 md:mb-3">
+                  <h2 className="text-base md:text-xl lg:text-2xl font-display text-gray-900">
                     {location.titleShort}
                   </h2>
                   
                   {/* Plus/X Button mit langsamer Rotation */}
                   <button
-                    className="shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center"
+                    className="shrink-0 w-8 h-8 md:w-12 lg:w-14 md:h-12 lg:h-14 rounded-full flex items-center justify-center"
                     style={{
                       backgroundColor: isExpanded ? '#c44536' : 'rgba(196, 69, 54, 0.1)',
                       color: isExpanded ? 'white' : '#c44536',
@@ -121,7 +121,7 @@ export function LocationsGrid() {
                     }}
                   >
                     <svg 
-                      className="w-6 h-6 md:w-7 md:h-7" 
+                      className="w-4 h-4 md:w-6 lg:w-7 md:h-6 lg:h-7" 
                       fill="none" 
                       viewBox="0 0 24 24" 
                       stroke="currentColor"
@@ -132,7 +132,7 @@ export function LocationsGrid() {
                   </button>
                 </div>
                 
-                <p className="text-gray-600 font-light leading-relaxed text-sm md:text-base">
+                <p className="text-gray-600 font-light leading-relaxed text-xs md:text-sm lg:text-base">
                   {location.shortDescription}
                 </p>
               </div>
@@ -147,40 +147,40 @@ export function LocationsGrid() {
                 }}
               >
                 {/* Image with Gradient Fade */}
-                <div className="relative h-48 md:h-64 bg-gray-800 overflow-hidden mx-6 md:mx-8 rounded-xl">
+                <div className="relative h-32 md:h-48 lg:h-64 bg-gray-800 overflow-hidden mx-4 md:mx-6 lg:mx-8 rounded-lg md:rounded-xl">
                   <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-900">
                     <div className="text-center">
-                      <svg className="w-12 h-12 text-gray-500 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg className="w-8 h-8 md:w-12 md:h-12 text-gray-500 mx-auto mb-1 md:mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
-                      <span className="text-gray-400 text-sm font-light">Bild folgt</span>
+                      <span className="text-gray-400 text-xs md:text-sm font-light">Bild folgt</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Expanded Details */}
-                <div className="p-6 md:p-8 pt-6">
-                  <p className="text-gray-600 font-light leading-relaxed mb-6 text-sm md:text-base">
+                <div className="p-4 md:p-6 lg:p-8 pt-4 md:pt-6">
+                  <p className="text-gray-600 font-light leading-relaxed mb-4 md:mb-6 text-xs md:text-sm lg:text-base">
                     {location.fullDescription}
                   </p>
 
                   {/* Kontakt & Öffnungszeiten */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
                     {/* Kontakt */}
                     <div>
-                      <h4 className="text-sm font-medium text-gray-900 mb-3">Kontakt</h4>
-                      <div className="space-y-2 text-sm text-gray-600 font-light">
+                      <h4 className="text-xs md:text-sm font-medium text-gray-900 mb-2 md:mb-3">Kontakt</h4>
+                      <div className="space-y-1 md:space-y-2 text-xs md:text-sm text-gray-600 font-light">
                         <p>{location.address}</p>
                         {location.phone && (
                           <p>
                             <a href={`tel:${location.phone.replace(/\s/g, '')}`} className="hover:text-primary transition-colors">
-                              Telefon {location.phone}
+                              Tel. {location.phone}
                             </a>
                           </p>
                         )}
                         {location.email && (
                           <p>
-                            <a href={`mailto:${location.email}`} className="hover:text-primary transition-colors">
+                            <a href={`mailto:${location.email}`} className="hover:text-primary transition-colors text-[10px] md:text-sm">
                               {location.email}
                             </a>
                           </p>
@@ -191,8 +191,8 @@ export function LocationsGrid() {
                     {/* Öffnungszeiten */}
                     {location.openingHours && (
                       <div>
-                        <h4 className="text-sm font-medium text-gray-900 mb-3">Öffnungszeiten</h4>
-                        <div className="space-y-1 text-sm text-gray-600 font-light">
+                        <h4 className="text-xs md:text-sm font-medium text-gray-900 mb-2 md:mb-3">Öffnungszeiten</h4>
+                        <div className="space-y-0.5 md:space-y-1 text-xs md:text-sm text-gray-600 font-light">
                           <p>{location.openingHours.closed}</p>
                           <p>{location.openingHours.weekdays}</p>
                           <p>{location.openingHours.saturday}</p>
@@ -201,8 +201,8 @@ export function LocationsGrid() {
                     )}
                   </div>
 
-                  <div className="pt-5 border-t border-gray-200/60">
-                    <p className="text-gray-700 font-light text-sm">
+                  <div className="pt-3 md:pt-5 border-t border-gray-200/60">
+                    <p className="text-gray-700 font-light text-xs md:text-sm">
                       {location.addressNote} –{' '}
                       <a
                         href={location.lageplanHref}
@@ -222,7 +222,7 @@ export function LocationsGrid() {
 
       {/* Hint */}
       <p 
-        className="mt-8 text-center text-sm text-gray-500 font-light"
+        className="mt-4 md:mt-8 text-center text-xs md:text-sm text-gray-500 font-light"
         style={{
           opacity: expandedId ? 0 : 1,
           transition: 'opacity 800ms ease',

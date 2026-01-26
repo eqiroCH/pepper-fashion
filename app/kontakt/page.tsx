@@ -9,22 +9,22 @@ export default function KontaktPage() {
   return (
     <div className="section-padding bg-white pt-8 md:pt-12">
       <div className="container-custom">
-        <div className="mb-6 text-center">
-          <h1 className="heading-1 mb-3">Kontakt</h1>
-          <p className="text-xl md:text-2xl text-gray-600 font-light max-w-2xl mx-auto">
+        <div className="mb-4 md:mb-6 text-center">
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-display font-normal tracking-tight text-gray-900 mb-2 md:mb-3">Kontakt</h1>
+          <p className="text-sm md:text-xl lg:text-2xl text-gray-600 font-light max-w-2xl mx-auto">
             Wir freuen uns auf Ihre Nachricht
           </p>
         </div>
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 items-stretch">
             {/* Kontaktinfos */}
-            <aside className="bg-fashion-cream/10 border border-gray-200/50 p-8 md:p-10">
-              <h2 className="heading-3 mb-6">Unsere Standorte</h2>
+            <aside className="bg-fashion-cream/10 border border-gray-200/50 p-4 md:p-8 lg:p-10">
+              <h2 className="text-base md:text-xl lg:text-2xl font-display font-normal tracking-tight text-gray-900 mb-3 md:mb-6">Unsere Standorte</h2>
               
               {/* Standort Siebnen */}
-              <div className="mb-8">
-                <h3 className="text-sm font-medium text-primary uppercase tracking-wide mb-3">Pepper Fashion Siebnen</h3>
-                <div className="space-y-1 text-sm text-gray-600 font-light">
+              <div className="mb-4 md:mb-8">
+                <h3 className="text-[10px] md:text-sm font-medium text-primary uppercase tracking-wide mb-2 md:mb-3">Pepper Fashion Siebnen</h3>
+                <div className="space-y-0.5 md:space-y-1 text-xs md:text-sm text-gray-600 font-light">
                   <p>
                     <a 
                       href="https://www.google.com/maps/search/?api=1&query=Bahnhofstrasse+1,+8854+Siebnen" 
@@ -42,11 +42,11 @@ export default function KontaktPage() {
                     </a>
                   </p>
                   <p>
-                    <a href="mailto:siebnen@pepper-fashion.ch" className="hover:text-primary transition-colors">
+                    <a href="mailto:siebnen@pepper-fashion.ch" className="hover:text-primary transition-colors text-[10px] md:text-sm">
                       siebnen@pepper-fashion.ch
                     </a>
                   </p>
-                  <div className="pt-2 text-xs text-gray-500">
+                  <div className="pt-1 md:pt-2 text-[9px] md:text-xs text-gray-500">
                     <p>Montag geschlossen</p>
                     <p>DI-FR: 9-12 | 14-18 Uhr</p>
                     <p>SA: 9-16 Uhr</p>
@@ -55,9 +55,9 @@ export default function KontaktPage() {
               </div>
 
               {/* Showroom Horgen */}
-              <div className="pt-6 border-t border-gray-200/60">
-                <h3 className="text-sm font-medium text-primary uppercase tracking-wide mb-3">Showroom Horgen</h3>
-                <div className="space-y-1 text-sm text-gray-600 font-light">
+              <div className="pt-3 md:pt-6 border-t border-gray-200/60">
+                <h3 className="text-[10px] md:text-sm font-medium text-primary uppercase tracking-wide mb-2 md:mb-3">Showroom Horgen</h3>
+                <div className="space-y-0.5 md:space-y-1 text-xs md:text-sm text-gray-600 font-light">
                   <p>
                     <a 
                       href="https://www.google.com/maps/search/?api=1&query=Seestrasse+159,+8810+Horgen" 
@@ -74,24 +74,24 @@ export default function KontaktPage() {
                       +41 79 576 09 22
                     </a>
                   </p>
-                  <div className="pt-2 text-xs text-gray-500">
+                  <div className="pt-1 md:pt-2 text-[9px] md:text-xs text-gray-500">
                     <p className="italic text-gray-400">Öffnungszeiten folgen</p>
                   </div>
                 </div>
               </div>
 
               {/* Social Media */}
-              <div className="pt-6 mt-6 border-t border-gray-200/60">
-                <h3 className="text-sm font-medium text-primary uppercase tracking-wide mb-4">Folgen Sie uns</h3>
-                <div className="flex items-center gap-4">
+              <div className="pt-3 md:pt-6 mt-3 md:mt-6 border-t border-gray-200/60">
+                <h3 className="text-[10px] md:text-sm font-medium text-primary uppercase tracking-wide mb-2 md:mb-4">Folgen Sie uns</h3>
+                <div className="flex items-center gap-3 md:gap-4">
                   <a
                     href="https://www.instagram.com/pepper_fashion_gmbh/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-all duration-300"
+                    className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-all duration-300"
                     aria-label="Instagram"
                   >
-                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                       <path
                         d="M7 4h10a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"
                         stroke="currentColor"
@@ -109,10 +109,10 @@ export default function KontaktPage() {
                     href="https://www.facebook.com/pepperfashiongmbh/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-all duration-300"
+                    className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-all duration-300"
                     aria-label="Facebook"
                   >
-                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                       <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2z" />
                     </svg>
                   </a>
@@ -121,7 +121,7 @@ export default function KontaktPage() {
             </aside>
 
             {/* Formular (schmaler) */}
-            <div className="bg-fashion-cream/10 border border-gray-200/50 p-8 md:p-10">
+            <div className="bg-fashion-cream/10 border border-gray-200/50 p-4 md:p-8 lg:p-10">
               <ContactForm />
             </div>
           </div>
