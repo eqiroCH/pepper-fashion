@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 interface Modelabel {
   name: string
@@ -24,12 +24,24 @@ const modelabels: Modelabel[] = [
 export function ModelabelsCarousel() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const animationFrameRef = useRef<number>()
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    // Prüfe ob Mobile beim ersten Render
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   useEffect(() => {
     const container = scrollContainerRef.current
     if (!container) return
 
-    const logoWidth = 300 + 80 // 300px width + 80px gap (gap-20 = 5rem = 80px)
+    // Responsive Logo-Breiten: Mobile viel kleiner, Desktop größer
+    const logoWidth = isMobile ? 80 + 16 : 300 + 80 // Mobile: 80px width + 16px gap, Desktop: 300px + 80px gap
     const singleSetWidth = modelabels.length * logoWidth
     let currentIndex = 0
 
@@ -63,29 +75,30 @@ export function ModelabelsCarousel() {
     return () => {
       clearInterval(interval)
     }
-  }, [])
+  }, [isMobile])
 
   // Dupliziere die Logos für nahtloses Scrolling
   const duplicatedLabels = [...modelabels, ...modelabels, ...modelabels]
 
   return (
-    <div className="relative overflow-hidden bg-fashion-cream/20 py-8 md:py-16">
+    <div className="relative overflow-hidden bg-fashion-cream/20 py-4 md:py-16">
       <div className="container-custom">
-        <h2 className="text-xl md:text-3xl lg:text-4xl font-display font-normal tracking-tight text-gray-900 mb-6 md:mb-12 text-center">Modelabels</h2>
+        <h2 className="text-xl md:text-3xl lg:text-4xl font-display font-normal tracking-tight text-gray-900 mb-4 md:mb-12 text-center">Modelabels</h2>
         
         <div className="relative">
           {/* Fade-Effekte links und rechts */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-fashion-cream/20 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-fashion-cream/20 to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-r from-fashion-cream/20 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-l from-fashion-cream/20 to-transparent z-10 pointer-events-none" />
           
           <div
             ref={scrollContainerRef}
-            className="flex gap-8 md:gap-20 items-center overflow-x-hidden scroll-smooth"
+            className="flex gap-4 md:gap-20 items-center overflow-x-hidden scroll-smooth"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {duplicatedLabels.map((label, index) => (
               <div
                 key={`${label.name}-${index}`}
+                className="flex-shrink-0 w-20 h-12 md:w-[300px] md:h-[150px]"
               >
                 {label.url ? (
                   <a
@@ -100,14 +113,18 @@ export function ModelabelsCarousel() {
                   >
                     <div 
                       className="relative w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500 opacity-50 group-hover:opacity-100 group-hover:scale-105"
-                      style={{ transform: label.scale ? `scale(${label.scale})` : undefined }}
+                      style={{ 
+                        transform: label.scale 
+                          ? `scale(${isMobile ? label.scale * 0.4 : label.scale})` 
+                          : undefined 
+                      }}
                     >
                       <Image
                         src={label.image}
                         alt={label.alt}
                         fill
                         className="object-contain"
-                        sizes="(max-width: 768px) 100px, 260px"
+                        sizes="(max-width: 768px) 80px, 260px"
                         onError={(e) => {
                           // Fallback wenn Bild nicht existiert
                           const target = e.target as HTMLImageElement
@@ -119,14 +136,18 @@ export function ModelabelsCarousel() {
                 ) : (
                   <div 
                     className="relative w-full h-full grayscale hover:grayscale-0 transition-all duration-500 opacity-50 hover:opacity-100 hover:scale-105"
-                    style={{ transform: label.scale ? `scale(${label.scale})` : undefined }}
+                    style={{ 
+                      transform: label.scale 
+                        ? `scale(${isMobile ? label.scale * 0.4 : label.scale})` 
+                        : undefined 
+                    }}
                   >
                     <Image
                       src={label.image}
                       alt={label.alt}
                       fill
                       className="object-contain"
-                      sizes="(max-width: 768px) 100px, 260px"
+                      sizes="(max-width: 768px) 80px, 260px"
                       onError={(e) => {
                         // Fallback wenn Bild nicht existiert
                         const target = e.target as HTMLImageElement
