@@ -1,4 +1,5 @@
 import { ContactForm } from '@/components/ContactForm'
+import { ContactFormMobile } from '@/components/ContactFormMobile'
 
 export const metadata = {
   title: 'Kontakt – pepper-fashion',
@@ -19,7 +20,7 @@ export default function KontaktPage() {
           {/* Mobile Layout: Standorte nebeneinander, Social Media unter Horgen, Formular darunter */}
           <div className="md:hidden space-y-4">
             <div className="bg-fashion-cream/10 border border-gray-200/50 p-4">
-              <h2 className="text-base font-display font-normal tracking-tight text-gray-900 mb-3">Unsere Standorte</h2>
+              <h2 className="text-base font-display font-normal tracking-tight text-gray-900 mb-3 text-center">Unsere Standorte</h2>
               
               {/* Standorte nebeneinander */}
               <div className="grid grid-cols-2 gap-3 mb-4">
@@ -124,8 +125,8 @@ export default function KontaktPage() {
             </div>
 
             {/* Formular */}
-            <div className="bg-fashion-cream/10 border border-gray-200/50 p-4">
-              <ContactForm />
+            <div className="bg-fashion-cream/10 border border-gray-200/50 p-3">
+              <ContactFormMobile />
             </div>
           </div>
 
