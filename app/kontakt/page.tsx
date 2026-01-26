@@ -7,16 +7,130 @@ export const metadata = {
 
 export default function KontaktPage() {
   return (
-    <div className="section-padding bg-white pt-8 md:pt-12">
+    <div className="section-padding bg-white pt-4 md:pt-12">
       <div className="container-custom">
-        <div className="mb-4 md:mb-6 text-center">
+        <div className="mb-3 md:mb-6 text-center">
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-display font-normal tracking-tight text-gray-900 mb-2 md:mb-3">Kontakt</h1>
           <p className="text-sm md:text-xl lg:text-2xl text-gray-600 font-light max-w-2xl mx-auto">
             Wir freuen uns auf Ihre Nachricht
           </p>
         </div>
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 items-stretch">
+          {/* Mobile Layout: Standorte nebeneinander, Social Media unter Horgen, Formular darunter */}
+          <div className="md:hidden space-y-4">
+            <div className="bg-fashion-cream/10 border border-gray-200/50 p-4">
+              <h2 className="text-base font-display font-normal tracking-tight text-gray-900 mb-3">Unsere Standorte</h2>
+              
+              {/* Standorte nebeneinander */}
+              <div className="grid grid-cols-2 gap-3 mb-4">
+                {/* Standort Siebnen */}
+                <div>
+                  <h3 className="text-[10px] font-medium text-primary uppercase tracking-wide mb-2">Pepper Fashion Siebnen</h3>
+                  <div className="space-y-0.5 text-xs text-gray-600 font-light">
+                    <p>
+                      <a 
+                        href="https://www.google.com/maps/search/?api=1&query=Bahnhofstrasse+1,+8854+Siebnen" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:text-primary transition-colors"
+                      >
+                        Bahnhofstrasse 1
+                      </a>
+                    </p>
+                    <p>8854 Siebnen</p>
+                    <p>
+                      <a href="tel:+41555258888" className="hover:text-primary transition-colors">
+                        +41 55 525 88 88
+                      </a>
+                    </p>
+                    <p>
+                      <a href="mailto:siebnen@pepper-fashion.ch" className="hover:text-primary transition-colors text-[10px]">
+                        siebnen@pepper-fashion.ch
+                      </a>
+                    </p>
+                    <div className="pt-1 text-[9px] text-gray-500">
+                      <p>Montag geschlossen</p>
+                      <p>DI-FR: 9-12 | 14-18 Uhr</p>
+                      <p>SA: 9-16 Uhr</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Showroom Horgen */}
+                <div>
+                  <h3 className="text-[10px] font-medium text-primary uppercase tracking-wide mb-2">Showroom Horgen</h3>
+                  <div className="space-y-0.5 text-xs text-gray-600 font-light">
+                    <p>
+                      <a 
+                        href="https://www.google.com/maps/search/?api=1&query=Seestrasse+159,+8810+Horgen" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:text-primary transition-colors"
+                      >
+                        Seestrasse 159
+                      </a>
+                    </p>
+                    <p>8810 Horgen</p>
+                    <p>
+                      <a href="tel:+41795760922" className="hover:text-primary transition-colors">
+                        +41 79 576 09 22
+                      </a>
+                    </p>
+                    <div className="pt-1 text-[9px] text-gray-500">
+                      <p className="italic text-gray-400">Öffnungszeiten folgen</p>
+                    </div>
+                  </div>
+                  
+                  {/* Social Media unter Horgen */}
+                  <div className="pt-3 mt-3 border-t border-gray-200/60">
+                    <h3 className="text-[10px] font-medium text-primary uppercase tracking-wide mb-2">Folgen Sie uns</h3>
+                    <div className="flex items-center gap-3">
+                      <a
+                        href="https://www.instagram.com/pepper_fashion_gmbh/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-all duration-300"
+                        aria-label="Instagram"
+                      >
+                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path
+                            d="M7 4h10a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                          />
+                          <path
+                            d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                          />
+                          <path d="M17.5 6.5h.01" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                        </svg>
+                      </a>
+                      <a
+                        href="https://www.facebook.com/pepperfashiongmbh/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-all duration-300"
+                        aria-label="Facebook"
+                      >
+                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Formular */}
+            <div className="bg-fashion-cream/10 border border-gray-200/50 p-4">
+              <ContactForm />
+            </div>
+          </div>
+
+          {/* Desktop Layout: Original Layout beibehalten */}
+          <div className="hidden md:grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 items-stretch">
             {/* Kontaktinfos */}
             <aside className="bg-fashion-cream/10 border border-gray-200/50 p-4 md:p-8 lg:p-10">
               <h2 className="text-base md:text-xl lg:text-2xl font-display font-normal tracking-tight text-gray-900 mb-3 md:mb-6">Unsere Standorte</h2>
