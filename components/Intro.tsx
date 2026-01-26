@@ -17,15 +17,15 @@ export function Intro() {
 
   return (
     <section 
-      className="pt-8 md:section-padding relative -mt-32 md:mt-0 overflow-hidden md:bg-white" 
+      className="pt-0 md:section-padding relative -mt-40 md:mt-0 overflow-hidden md:bg-white" 
       style={isMobile ? {
-        background: 'linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.2) 15%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0.6) 45%, rgba(255,255,255,0.8) 60%, white 75%, white 100%)'
+        background: 'linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.1) 10%, rgba(255,255,255,0.3) 20%, rgba(255,255,255,0.5) 30%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0.85) 50%, white 60%, white 100%)'
       } : undefined}
     >
       <div className="container-custom relative z-10">
-        {/* Header with Logo */}
-        <div className="mb-12 md:mb-16 text-center">
-          <div className="relative w-96 md:w-[500px] h-40 md:h-52 mx-auto mb-8 z-10">
+        {/* Header with Logo - im Vordergrund, zentriert */}
+        <div className="mb-8 md:mb-16 text-center -mt-20 md:mt-0">
+          <div className="relative w-96 md:w-[500px] h-40 md:h-52 mx-auto mb-6 md:mb-8 z-20">
             <Image
               src="/PepperLogoNew.png"
               alt="Pepper Fashion - Siebnen & Horgen"
@@ -38,11 +38,11 @@ export function Intro() {
           <h1 className="sr-only">pepper-fashion</h1>
         </div>
 
-        {/* Content */}
+        {/* Content - nach oben geschoben */}
         <div className="max-w-4xl mx-auto">
-          <div className="space-y-8 text-center">
-            {/* Mobile: Kürzerer Text */}
-            <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-700 font-light md:hidden">
+          <div className="space-y-6 md:space-y-8 text-center">
+            {/* Mobile: Kürzerer Text - direkt nach oben */}
+            <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-700 font-light md:hidden -mt-4">
               Mode, die zu Ihnen passt – persönlich beraten.
             </p>
             

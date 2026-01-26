@@ -43,7 +43,34 @@ export function Navigation() {
       } ${isTransparent ? 'bg-transparent' : 'bg-white shadow-lg'}`}
     >
       <nav className="container-custom">
-        <div className="flex items-center justify-between h-20">
+        {/* Mobile Navigation - horizontale Navbar ohne Logo */}
+        <div className="md:hidden flex items-center justify-center h-16">
+          <div className="flex items-center space-x-6">
+            <Link href="/team" className={`text-xs font-medium uppercase tracking-wider transition-colors duration-300 ${
+              isTransparent ? 'text-white hover:text-white/70' : 'text-gray-700 hover:text-primary'
+            }`}>
+              Team
+            </Link>
+            <Link href="/news" className={`text-xs font-medium uppercase tracking-wider transition-colors duration-300 ${
+              isTransparent ? 'text-white hover:text-white/70' : 'text-gray-700 hover:text-primary'
+            }`}>
+              News
+            </Link>
+            <Link href="/bildergalerie" className={`text-xs font-medium uppercase tracking-wider transition-colors duration-300 ${
+              isTransparent ? 'text-white hover:text-white/70' : 'text-gray-700 hover:text-primary'
+            }`}>
+              Galerie
+            </Link>
+            <Link href="/kontakt" className={`text-xs font-medium uppercase tracking-wider transition-colors duration-300 ${
+              isTransparent ? 'text-primary hover:text-primary/80' : 'text-primary hover:text-primary/80'
+            }`}>
+              Kontakt
+            </Link>
+          </div>
+        </div>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative h-14 w-44 md:h-16 md:w-56">
               <Image
@@ -69,8 +96,8 @@ export function Navigation() {
             </div>
           </Link>
           
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-10">
+          {/* Desktop Navigation Links */}
+          <div className="flex items-center space-x-10">
             <Link href="/standorte" className={`text-sm font-medium uppercase tracking-wider transition-colors duration-300 ${
               isTransparent ? 'text-white hover:text-white/70' : 'text-gray-700 hover:text-primary'
             }`}>
@@ -111,74 +138,7 @@ export function Navigation() {
               Kontakt
             </Link>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className={`md:hidden p-2 rounded-md transition-colors ${
-              isTransparent
-                ? 'text-white hover:text-white/70'
-                : 'text-gray-800 hover:text-primary hover:bg-gray-100'
-            }`}
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              {isOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
         </div>
-
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div
-            className={`md:hidden py-6 border-t ${
-              isTransparent
-                ? 'border-white/20 bg-black/80 backdrop-blur-md'
-                : 'border-gray-200 bg-white'
-            }`}
-          >
-            <div className="flex flex-col space-y-4">
-              <Link href="/standorte" className={`text-sm font-medium uppercase tracking-wider transition-colors ${
-                isTransparent ? 'text-white hover:text-white/70' : 'text-gray-900 hover:text-primary'
-              }`}>
-                Standorte
-              </Link>
-              <Link href="/team" className={`text-sm font-medium uppercase tracking-wider transition-colors ${
-                isTransparent ? 'text-white hover:text-white/70' : 'text-gray-900 hover:text-primary'
-              }`}>
-                Team
-              </Link>
-              <Link href="/news" className={`text-sm font-medium uppercase tracking-wider transition-colors ${
-                isTransparent ? 'text-white hover:text-white/70' : 'text-gray-900 hover:text-primary'
-              }`}>
-                News
-              </Link>
-              <Link href="/bildergalerie" className={`text-sm font-medium uppercase tracking-wider transition-colors ${
-                isTransparent ? 'text-white hover:text-white/70' : 'text-gray-900 hover:text-primary'
-              }`}>
-                Bildergalerie
-              </Link>
-              <Link 
-                href="/#modelabels" 
-                onClick={handleModelabelsClick}
-                className={`text-sm font-medium uppercase tracking-wider transition-colors ${
-                  isTransparent ? 'text-white hover:text-white/70' : 'text-gray-900 hover:text-primary'
-                }`}
-              >
-                Modelabels
-              </Link>
-              <Link href="/kontakt" className={`text-sm font-medium uppercase tracking-wider transition-colors ${
-                isTransparent ? 'text-primary hover:text-primary/80' : 'text-primary hover:text-primary/80'
-              }`}>
-                Kontakt
-              </Link>
-            </div>
-          </div>
-        )}
       </nav>
     </header>
   )

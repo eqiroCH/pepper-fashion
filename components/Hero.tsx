@@ -90,8 +90,8 @@ export function Hero() {
         </svg>
       </button>
 
-      {/* Slide Indicators */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex space-x-2">
+      {/* Slide Indicators - nur Desktop */}
+      <div className="hidden md:flex absolute bottom-6 left-1/2 -translate-x-1/2 z-20 space-x-2">
         {heroImages.map((_, index) => (
           <button
             key={index}
