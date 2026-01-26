@@ -69,8 +69,8 @@ export function ModelabelsCarousel() {
       }
     }
 
-    // Starte das automatische Scrolling alle 2 Sekunden
-    const interval = setInterval(scrollToNext, 2000)
+    // Starte das automatische Scrolling alle 2.7 Sekunden (0.7s langsamer als vorher)
+    const interval = setInterval(scrollToNext, 2700)
 
     return () => {
       clearInterval(interval)
