@@ -57,23 +57,23 @@ export function Navigation() {
               />
             </div>
           </Link>
-          <div className="flex items-center space-x-3 flex-1 justify-end">
-            <Link href="/team" className={`text-[10px] font-medium uppercase tracking-wider transition-colors duration-300 whitespace-nowrap ${
+          <div className="flex items-center space-x-4 flex-1 justify-center ml-4">
+            <Link href="/team" className={`text-xs font-medium uppercase tracking-wider transition-colors duration-300 whitespace-nowrap ${
               isTransparent ? 'text-white hover:text-white/70' : 'text-gray-700 hover:text-primary'
             }`}>
               Team
             </Link>
-            <Link href="/news" className={`text-[10px] font-medium uppercase tracking-wider transition-colors duration-300 whitespace-nowrap ${
+            <Link href="/news" className={`text-xs font-medium uppercase tracking-wider transition-colors duration-300 whitespace-nowrap ${
               isTransparent ? 'text-white hover:text-white/70' : 'text-gray-700 hover:text-primary'
             }`}>
               News
             </Link>
-            <Link href="/bildergalerie" className={`text-[10px] font-medium uppercase tracking-wider transition-colors duration-300 whitespace-nowrap ${
+            <Link href="/bildergalerie" className={`text-xs font-medium uppercase tracking-wider transition-colors duration-300 whitespace-nowrap ${
               isTransparent ? 'text-white hover:text-white/70' : 'text-gray-700 hover:text-primary'
             }`}>
               Galerie
             </Link>
-            <Link href="/kontakt" className={`text-[10px] font-medium uppercase tracking-wider transition-colors duration-300 whitespace-nowrap ${
+            <Link href="/kontakt" className={`text-xs font-medium uppercase tracking-wider transition-colors duration-300 whitespace-nowrap ${
               isTransparent ? 'text-primary hover:text-primary/80' : 'text-primary hover:text-primary/80'
             }`}>
               Kontakt
