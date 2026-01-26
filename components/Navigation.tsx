@@ -44,36 +44,36 @@ export function Navigation() {
     >
       <nav className="container-custom">
         {/* Mobile Navigation - Logo links, Links rechts */}
-        <div className="md:hidden flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center">
-            <div className="relative h-10 w-32">
+        <div className="md:hidden flex items-center justify-between h-16 px-2">
+          <Link href="/" className="flex items-center shrink-0">
+            <div className="relative h-7 w-24">
               <Image
                 src="/PepperLogoNew.png"
                 alt="pepper-fashion Logo"
                 fill
                 className="object-contain"
-                sizes="128px"
+                sizes="96px"
                 priority
               />
             </div>
           </Link>
-          <div className="flex items-center space-x-4">
-            <Link href="/team" className={`text-xs font-medium uppercase tracking-wider transition-colors duration-300 ${
+          <div className="flex items-center space-x-3 flex-1 justify-end">
+            <Link href="/team" className={`text-[10px] font-medium uppercase tracking-wider transition-colors duration-300 whitespace-nowrap ${
               isTransparent ? 'text-white hover:text-white/70' : 'text-gray-700 hover:text-primary'
             }`}>
               Team
             </Link>
-            <Link href="/news" className={`text-xs font-medium uppercase tracking-wider transition-colors duration-300 ${
+            <Link href="/news" className={`text-[10px] font-medium uppercase tracking-wider transition-colors duration-300 whitespace-nowrap ${
               isTransparent ? 'text-white hover:text-white/70' : 'text-gray-700 hover:text-primary'
             }`}>
               News
             </Link>
-            <Link href="/bildergalerie" className={`text-xs font-medium uppercase tracking-wider transition-colors duration-300 ${
+            <Link href="/bildergalerie" className={`text-[10px] font-medium uppercase tracking-wider transition-colors duration-300 whitespace-nowrap ${
               isTransparent ? 'text-white hover:text-white/70' : 'text-gray-700 hover:text-primary'
             }`}>
               Galerie
             </Link>
-            <Link href="/kontakt" className={`text-xs font-medium uppercase tracking-wider transition-colors duration-300 ${
+            <Link href="/kontakt" className={`text-[10px] font-medium uppercase tracking-wider transition-colors duration-300 whitespace-nowrap ${
               isTransparent ? 'text-primary hover:text-primary/80' : 'text-primary hover:text-primary/80'
             }`}>
               Kontakt
