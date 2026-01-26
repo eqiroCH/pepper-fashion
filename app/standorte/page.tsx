@@ -8,10 +8,10 @@ export const metadata = {
 
 export default function StandortePage() {
   return (
-    <div className="section-padding bg-white min-h-[calc(100vh-200px)] pb-32 md:pb-48">
+    <div className="section-padding bg-white min-h-[calc(100vh-200px)] pb-32 md:pb-48 pt-8 md:pt-12">
       <div className="container-custom">
-        <div className="mb-16 text-center">
-          <h1 className="heading-1 mb-6">Standorte</h1>
+        <div className="mb-6 text-center">
+          <h1 className="heading-1 mb-3">Standorte</h1>
           <p className="text-xl md:text-2xl text-gray-600 font-light max-w-2xl mx-auto">
             Besuchen Sie uns an unseren beiden Standorten
           </p>

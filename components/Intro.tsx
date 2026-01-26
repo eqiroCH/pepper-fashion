@@ -6,20 +6,17 @@ export function Intro() {
       <div className="container-custom">
         {/* Header with Logo */}
         <div className="mb-16 text-center">
-          <div className="relative w-72 md:w-96 h-32 md:h-40 mx-auto mb-8">
+          <div className="relative w-96 md:w-[500px] h-40 md:h-52 mx-auto mb-8">
             <Image
               src="/PepperLogoNew.png"
               alt="Pepper Fashion - Siebnen & Horgen"
               fill
               className="object-contain"
-              sizes="(max-width: 768px) 288px, 384px"
+              sizes="(max-width: 768px) 384px, 500px"
               priority
             />
           </div>
           <h1 className="sr-only">pepper-fashion</h1>
-          <p className="text-lg md:text-xl text-gray-600 font-light tracking-wide">
-            kompetente Modeberatung für Menschen mit Stil
-          </p>
         </div>
 
         {/* Content */}

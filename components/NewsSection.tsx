@@ -61,10 +61,10 @@ export function NewsSection() {
         {/* Aktuelles & Alle News - direkt über den Karten */}
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-4">
-            <div className="w-8 h-px bg-primary" />
-            <span className="text-xs tracking-widest uppercase text-primary font-medium">
-              Aktuelles
-            </span>
+              <div className="w-8 h-px bg-primary" />
+              <span className="text-xs tracking-widest uppercase text-primary font-medium">
+                Aktuelles
+              </span>
           </div>
           <Link 
             href="/news" 

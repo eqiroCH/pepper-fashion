@@ -7,10 +7,10 @@ export const metadata = {
 
 export default function KontaktPage() {
   return (
-    <div className="section-padding bg-white">
+    <div className="section-padding bg-white pt-8 md:pt-12">
       <div className="container-custom">
-        <div className="mb-16 text-center">
-          <h1 className="heading-1 mb-6">Kontakt</h1>
+        <div className="mb-6 text-center">
+          <h1 className="heading-1 mb-3">Kontakt</h1>
           <p className="text-xl md:text-2xl text-gray-600 font-light max-w-2xl mx-auto">
             Wir freuen uns auf Ihre Nachricht
           </p>

@@ -26,10 +26,10 @@ const modeberaterinnen = [
 
 export default function TeamPage() {
   return (
-    <div className="section-padding bg-white">
+    <div className="section-padding bg-white pt-8 md:pt-12">
       <div className="container-custom">
-        <div className="mb-16 text-center">
-          <h1 className="heading-1 mb-6">Unser Team</h1>
+        <div className="mb-6 text-center">
+          <h1 className="heading-1 mb-3">Unser Team</h1>
           <p className="text-xl md:text-2xl text-gray-600 font-light max-w-2xl mx-auto">
             Unser Team in Siebnen hat grosse Erfahrung und nimmt sich genügend Zeit um Sie zu beraten.
           </p>

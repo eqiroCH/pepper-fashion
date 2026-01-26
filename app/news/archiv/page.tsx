@@ -124,12 +124,12 @@ export default function NewsArchivPage() {
   }
 
   return (
-    <div className="section-padding bg-white">
+    <div className="section-padding bg-white pt-8 md:pt-12">
       <div className="container-custom">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
-          <div className="mb-10">
-            <h1 className="heading-1 mb-4 text-center">News Archiv</h1>
+          <div className="mb-5">
+            <h1 className="heading-1 mb-2.5 text-center">News Archiv</h1>
             <p className="text-base md:text-lg text-gray-600 font-light max-w-2xl mx-auto text-center">
               Alle vergangenen Veranstaltungen, Firmennews und Updates im Überblick.
             </p>
