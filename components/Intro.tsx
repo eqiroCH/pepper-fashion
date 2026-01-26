@@ -3,7 +3,10 @@ import Image from 'next/image'
 export function Intro() {
   return (
     <section className="pt-8 md:section-padding bg-white relative -mt-32 md:mt-0">
-      <div className="container-custom">
+      {/* Gradient Overlay am oberen Rand für Mobile */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent via-white/80 to-white z-0 md:hidden" />
+      
+      <div className="container-custom relative z-10">
         {/* Header with Logo */}
         <div className="mb-12 md:mb-16 text-center">
           <div className="relative w-96 md:w-[500px] h-40 md:h-52 mx-auto mb-8 z-10">
@@ -11,7 +14,7 @@ export function Intro() {
               src="/PepperLogoNew.png"
               alt="Pepper Fashion - Siebnen & Horgen"
               fill
-              className="object-contain"
+              className="object-contain object-center"
               sizes="(max-width: 768px) 384px, 500px"
               priority
             />
