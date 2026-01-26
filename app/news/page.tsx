@@ -91,7 +91,7 @@ export default function NewsPage() {
   }, [])
 
   const [selectedCategory, setSelectedCategory] = useState('Alle')
-  const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set())
+  const [expandedItem, setExpandedItem] = useState<string | null>(null)
 
   const filteredNews =
     selectedCategory === 'Alle'
@@ -99,15 +99,7 @@ export default function NewsPage() {
       : allNewsItems.filter((item) => item.category === selectedCategory)
 
   const toggleExpand = (href: string) => {
-    setExpandedItems((prev) => {
-      const next = new Set(prev)
-      if (next.has(href)) {
-        next.delete(href)
-      } else {
-        next.add(href)
-      }
-      return next
-    })
+    setExpandedItem(expandedItem === href ? null : href)
   }
 
   return (
@@ -169,7 +161,7 @@ export default function NewsPage() {
           {/* News Grid */}
           <div className="grid grid-cols-2 md:grid-cols-2 gap-2 md:gap-6">
             {filteredNews.map((item, index) => {
-              const isExpanded = expandedItems.has(item.href)
+              const isExpanded = expandedItem === item.href
               return (
                 <article
                   key={`${item.href}-${index}`}

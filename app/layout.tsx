@@ -7,8 +7,12 @@ import { Footer } from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'pepper-fashion – Kompetente Modeberatung für Menschen mit Stil',
+  title: 'Pepper Fashion',
   description: 'pepper-fashion bietet kompetente Modeberatung in Siebnen und Horgen. Entdecken Sie aktuelle Fashiontrends und lassen Sie sich professionell beraten.',
+  icons: {
+    icon: '/PepperLogoNew.png',
+    apple: '/PepperLogoNew.png',
+  },
 }
 
 export default function RootLayout({

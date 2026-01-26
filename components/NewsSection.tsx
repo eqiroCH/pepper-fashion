@@ -36,18 +36,10 @@ const newsItems: NewsItem[] = [
 ]
 
 export function NewsSection() {
-  const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set())
+  const [expandedItem, setExpandedItem] = useState<string | null>(null)
 
   const toggleExpand = (href: string) => {
-    setExpandedItems((prev) => {
-      const next = new Set(prev)
-      if (next.has(href)) {
-        next.delete(href)
-      } else {
-        next.add(href)
-      }
-      return next
-    })
+    setExpandedItem(expandedItem === href ? null : href)
   }
 
   return (
@@ -80,7 +72,7 @@ export function NewsSection() {
         {/* News Grid */}
         <div className="grid grid-cols-3 gap-2 md:gap-6 items-start">
           {newsItems.map((item, index) => {
-            const isExpanded = expandedItems.has(item.href)
+            const isExpanded = expandedItem === item.href
             return (
               <article
                 key={index}

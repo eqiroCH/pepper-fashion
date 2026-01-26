@@ -200,19 +200,6 @@ export function LocationsGrid() {
                       </div>
                     )}
                   </div>
-
-                  <div className="pt-3 md:pt-5 border-t border-gray-200/60">
-                    <p className="text-gray-700 font-light text-xs md:text-sm">
-                      {location.addressNote} –{' '}
-                      <a
-                        href={location.lageplanHref}
-                        onClick={(e) => e.stopPropagation()}
-                        className="text-primary hover:underline font-medium"
-                      >
-                        Lageplan
-                      </a>
-                    </p>
-                  </div>
                 </div>
               </div>
             </article>
