@@ -43,9 +43,21 @@ export function Navigation() {
       } ${isTransparent ? 'bg-transparent' : 'bg-white shadow-lg'}`}
     >
       <nav className="container-custom">
-        {/* Mobile Navigation - horizontale Navbar ohne Logo */}
-        <div className="md:hidden flex items-center justify-center h-16">
-          <div className="flex items-center space-x-6">
+        {/* Mobile Navigation - Logo links, Links rechts */}
+        <div className="md:hidden flex items-center justify-between h-16">
+          <Link href="/" className="flex items-center">
+            <div className="relative h-10 w-32">
+              <Image
+                src="/PepperLogoNew.png"
+                alt="pepper-fashion Logo"
+                fill
+                className="object-contain"
+                sizes="128px"
+                priority
+              />
+            </div>
+          </Link>
+          <div className="flex items-center space-x-4">
             <Link href="/team" className={`text-xs font-medium uppercase tracking-wider transition-colors duration-300 ${
               isTransparent ? 'text-white hover:text-white/70' : 'text-gray-700 hover:text-primary'
             }`}>

@@ -17,7 +17,7 @@ export function Intro() {
 
   return (
     <section 
-      className="pt-0 md:section-padding relative -mt-40 md:mt-0 overflow-hidden md:bg-white" 
+      className="pt-0 md:section-padding relative -mt-40 md:mt-0 md:overflow-hidden md:bg-white" 
       style={isMobile ? {
         background: 'linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.1) 10%, rgba(255,255,255,0.3) 20%, rgba(255,255,255,0.5) 30%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0.85) 50%, white 60%, white 100%)'
       } : undefined}
@@ -25,15 +25,17 @@ export function Intro() {
       <div className="container-custom relative z-10">
         {/* Header with Logo - im Vordergrund, zentriert */}
         <div className="mb-8 md:mb-16 text-center -mt-20 md:mt-0">
-          <div className="relative w-96 md:w-[500px] h-40 md:h-52 mx-auto mb-6 md:mb-8 z-20">
-            <Image
-              src="/PepperLogoNew.png"
-              alt="Pepper Fashion - Siebnen & Horgen"
-              fill
-              className="object-contain object-center"
-              sizes="(max-width: 768px) 384px, 500px"
-              priority
-            />
+          <div className="relative w-full max-w-[384px] md:w-[500px] h-40 md:h-52 mx-auto mb-6 md:mb-8 z-20 flex items-center justify-center">
+            <div className="relative w-full h-full">
+              <Image
+                src="/PepperLogoNew.png"
+                alt="Pepper Fashion - Siebnen & Horgen"
+                fill
+                className="object-contain object-center"
+                sizes="(max-width: 768px) 384px, 500px"
+                priority
+              />
+            </div>
           </div>
           <h1 className="sr-only">pepper-fashion</h1>
         </div>
