@@ -1,11 +1,27 @@
+'use client'
+
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 
 export function Intro() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
   return (
-    <section className="pt-8 md:section-padding bg-white relative -mt-32 md:mt-0">
-      {/* Gradient Overlay am oberen Rand für Mobile */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent via-white/80 to-white z-0 md:hidden" />
-      
+    <section 
+      className="pt-8 md:section-padding relative -mt-32 md:mt-0 overflow-hidden md:bg-white" 
+      style={isMobile ? {
+        background: 'linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.2) 15%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0.6) 45%, rgba(255,255,255,0.8) 60%, white 75%, white 100%)'
+      } : undefined}
+    >
       <div className="container-custom relative z-10">
         {/* Header with Logo */}
         <div className="mb-12 md:mb-16 text-center">
