@@ -36,8 +36,8 @@ export default function TeamPage() {
         </div>
         <div className="max-w-6xl mx-auto">
           <section id="team-pepper-fashion">
-            {/* Alle 3 Teammitglieder nebeneinander */}
-            <div className="grid grid-cols-3 gap-2 md:gap-6">
+            {/* Alle 3 Teammitglieder - 2 pro Reihe auf Mobile, 3 auf Desktop */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-6">
               {/* Inhaberin */}
               <div className="relative bg-white border border-gray-200/60 rounded-lg md:rounded-2xl overflow-hidden">
                 {/* Bild-Platzhalter */}
