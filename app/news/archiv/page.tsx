@@ -259,18 +259,6 @@ export default function NewsArchivPage() {
               <p className="text-gray-700 font-light">Keine News für dieses Jahr gefunden.</p>
             </div>
           )}
-
-          <div className="mt-10 md:hidden">
-            <Link
-              href="/news"
-              className="inline-flex items-center gap-2 text-primary font-medium tracking-wide uppercase text-sm"
-            >
-              Zur News-Übersicht
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </div>
         </div>
       </div>
     </div>
