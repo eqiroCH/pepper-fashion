@@ -111,7 +111,7 @@ export function NewsSection() {
                   <div className="mb-2 md:mb-4" />
                 )}
 
-                {/* Expandable Content - hidden on mobile */}
+                {/* Expandable Content */}
                 <div
                   style={{
                     maxHeight: isExpanded ? '250px' : '0px',
@@ -119,9 +119,9 @@ export function NewsSection() {
                     transition: 'max-height 500ms ease-in-out, opacity 400ms ease-in-out',
                     overflow: 'hidden',
                   }}
-                  className="mb-2 md:mb-4 hidden md:block"
+                  className={`mb-2 md:mb-4 ${isExpanded ? 'block' : 'hidden md:block'}`}
                 >
-                  <p className="text-gray-600 font-light leading-relaxed text-sm">
+                  <p className="text-[8px] md:text-sm text-gray-600 font-light leading-relaxed">
                     {item.content}
                   </p>
                 </div>
@@ -130,7 +130,7 @@ export function NewsSection() {
                 <div className="mt-auto pt-1 md:pt-2">
                   <div className="inline-flex items-center gap-1 md:gap-2 text-primary font-medium tracking-wide uppercase text-[8px] md:text-xs">
                     <span className="hidden md:inline">{isExpanded ? 'Weniger anzeigen' : 'Mehr lesen'}</span>
-                    <span className="md:hidden">Mehr</span>
+                    <span className="md:hidden">{isExpanded ? 'Weniger' : 'Mehr'}</span>
                     <svg
                       className={`w-2 h-2 md:w-4 md:h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
                       fill="none"
