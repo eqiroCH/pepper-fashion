@@ -26,16 +26,6 @@ export function Navigation() {
     setIsOpen(false)
   }, [pathname])
 
-  const handleModelabelsClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (isHome) {
-      e.preventDefault()
-      const element = document.getElementById('modelabels')
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }
-    }
-  }
-
   return (
     <header
       className={`z-50 transition-all duration-500 ${
@@ -63,10 +53,10 @@ export function Navigation() {
             }`}>
               Team
             </Link>
-            <Link href="/news" className={`text-xs font-medium uppercase tracking-wider transition-colors duration-300 whitespace-nowrap ${
+            <Link href="/instagram" className={`text-xs font-medium uppercase tracking-wider transition-colors duration-300 whitespace-nowrap ${
               isTransparent ? 'text-white hover:text-white/70' : 'text-gray-700 hover:text-primary'
             }`}>
-              News
+              Instagram
             </Link>
             <Link href="/bildergalerie" className={`text-xs font-medium uppercase tracking-wider transition-colors duration-300 whitespace-nowrap ${
               isTransparent ? 'text-white hover:text-white/70' : 'text-gray-700 hover:text-primary'
@@ -122,26 +112,16 @@ export function Navigation() {
               Team
             </Link>
             
-            <Link href="/news" className={`text-sm font-medium uppercase tracking-wider transition-colors duration-300 ${
+            <Link href="/instagram" className={`text-sm font-medium uppercase tracking-wider transition-colors duration-300 ${
               isTransparent ? 'text-white hover:text-white/70' : 'text-gray-700 hover:text-primary'
             }`}>
-              News
+              Instagram
             </Link>
             
             <Link href="/bildergalerie" className={`text-sm font-medium uppercase tracking-wider transition-colors duration-300 ${
               isTransparent ? 'text-white hover:text-white/70' : 'text-gray-700 hover:text-primary'
             }`}>
               Bildergalerie
-            </Link>
-            
-            <Link 
-              href="/#modelabels" 
-              onClick={handleModelabelsClick}
-              className={`text-sm font-medium uppercase tracking-wider transition-colors duration-300 ${
-                isTransparent ? 'text-white hover:text-white/70' : 'text-gray-700 hover:text-primary'
-              }`}
-            >
-              Modelabels
             </Link>
             
             <Link href="/kontakt" className={`text-sm font-medium uppercase tracking-wider transition-colors duration-300 ${

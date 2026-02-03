@@ -17,15 +17,12 @@ export function Intro() {
 
   return (
     <section 
-      className="pt-0 md:section-padding relative -mt-40 md:mt-0 md:overflow-hidden md:bg-white" 
-      style={isMobile ? {
-        background: 'linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.1) 10%, rgba(255,255,255,0.3) 20%, rgba(255,255,255,0.5) 30%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0.85) 50%, white 60%, white 100%)'
-      } : undefined}
+      className="pt-0 md:section-padding relative -mt-40 md:-mt-[420px] bg-transparent"
     >
       <div className="container-custom relative z-10">
         {/* Header with Logo - im Vordergrund, zentriert */}
-        <div className="mb-8 md:mb-16 text-center -mt-20 md:mt-0">
-          <div className="relative w-full max-w-[384px] md:w-[500px] h-40 md:h-52 mx-auto mb-6 md:mb-8 z-20 flex items-center justify-center">
+        <div className="mb-4 md:mb-8 text-center mt-0 flex flex-col items-center">
+          <div className="relative w-[420px] md:w-[600px] h-44 md:h-64 mb-4 md:mb-6 z-20 flex items-center justify-center">
             <div className="relative w-full h-full">
               <Image
                 src="/PepperLogoNew.png"
@@ -62,16 +59,10 @@ export function Intro() {
               Wir ergänzen Ihre Garderobe mit ausgewählten Kleidern und Accessoires.
             </p>
             
-            {/* Desktop: Vollständiger Text */}
+            {/* Desktop: Vollständiger Text als Fließtext */}
             <p className="max-w-3xl mx-auto text-base md:text-lg leading-relaxed text-gray-600 font-light hidden md:block">
               Gemeinsam holen wir das Beste aus Ihrer Garderobe heraus und ergänzen sie mit
-              ausgewählten Kleidern, Schuhen und Accessoires unserer Modelabels.
-            </p>
-            
-            {/* Mobile: Entfernt */}
-            {/* Desktop: Vollständiger Text */}
-            <p className="max-w-3xl mx-auto text-base md:text-lg leading-relaxed text-gray-600 font-light hidden md:block">
-              In entspannter Atmosphäre – gerne mit Kaffee oder einem Glas Prosecco.
+              ausgewählten Kleidern, Schuhen und Accessoires unserer Modelabels. In entspannter Atmosphäre – gerne mit Kaffee oder einem Glas Prosecco.
             </p>
           </div>
         </div>

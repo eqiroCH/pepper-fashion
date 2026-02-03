@@ -1,7 +1,7 @@
 import { Hero } from '@/components/Hero'
 import { Intro } from '@/components/Intro'
 import { StandortePreview } from '@/components/StandortePreview'
-import { NewsSection } from '@/components/NewsSection'
+import { InstagramSection } from '@/components/InstagramSection'
 import { ModelabelsSection } from '@/components/ModelabelsSection'
 
 export default function Home() {
@@ -9,8 +9,8 @@ export default function Home() {
     <>
       <Hero />
       <Intro />
+      <InstagramSection />
       <StandortePreview />
-      <NewsSection />
       <ModelabelsSection />
     </>
   )

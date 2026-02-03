@@ -45,7 +45,7 @@ export function Hero() {
   }
 
   return (
-    <section className="relative h-[70vh] md:h-[80vh] overflow-hidden">
+    <section className="relative h-[75vh] md:h-[85vh] overflow-hidden">
       {/* Image Slider */}
       <div className="absolute inset-0">
         {heroImages.map((image, index) => (
@@ -67,8 +67,8 @@ export function Hero() {
         ))}
       </div>
 
-      {/* Soft fade at the bottom so content starts earlier */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/45 via-white/15 to-white" />
+      {/* Soft fade at the bottom - white fading into the image */}
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-[50%]" style={{ background: 'linear-gradient(to top, white 0%, rgba(255,255,255,0.9) 20%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0.3) 60%, rgba(255,255,255,0.1) 80%, transparent 100%)' }} />
 
       {/* Navigation Arrows */}
       <button
@@ -90,21 +90,6 @@ export function Hero() {
         </svg>
       </button>
 
-      {/* Slide Indicators - nur Desktop */}
-      <div className="hidden md:flex absolute bottom-6 left-1/2 -translate-x-1/2 z-20 space-x-2">
-        {heroImages.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === currentSlide
-                ? 'bg-white w-8'
-                : 'bg-white/50 hover:bg-white/75'
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
 
       {/* Overlay Content */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
