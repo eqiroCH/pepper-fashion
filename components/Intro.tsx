@@ -17,7 +17,7 @@ export function Intro() {
 
   return (
     <section 
-      className="pt-0 md:section-padding relative -mt-40 md:-mt-[420px] bg-transparent"
+      className="pt-0 md:section-padding relative -mt-40 md:-mt-[350px] bg-transparent"
     >
       <div className="container-custom relative z-10">
         {/* Header with Logo - im Vordergrund, zentriert */}
