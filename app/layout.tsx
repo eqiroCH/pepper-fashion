@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
@@ -26,6 +27,8 @@ export default function RootLayout({
         <Navigation />
         <main className="flex-1">{children}</main>
         <Footer />
+        {/* Elfsight Instagram Feed | Pepper Fashion GmbH */}
+        <Script src="https://static.elfsight.com/platform/platform.js" strategy="lazyOnload" />
       </body>
     </html>
   )
