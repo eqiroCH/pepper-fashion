@@ -55,6 +55,29 @@ export default function KontaktPage() {
                       <p>SA: 9-16 Uhr</p>
                     </div>
                   </div>
+                  {/* Mini Map Siebnen Mobile */}
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Bahnhofstrasse+1,+8854+Siebnen"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative w-full h-20 mt-2 rounded-lg overflow-hidden block border border-gray-200"
+                  >
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2724.5!2d8.8942!3d47.1756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479ab1234567890%3A0x1234567890abcdef!2sBahnhofstrasse%201%2C%208854%20Siebnen!5e0!3m2!1sde!2sch!4v1234567890"
+                      className="w-full h-full pointer-events-none"
+                      style={{ border: 0 }}
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
+                    <div className="absolute inset-0 bg-primary/20" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-5 h-5 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                        <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                      </div>
+                    </div>
+                  </a>
                 </div>
 
                 {/* Showroom Horgen */}
@@ -81,6 +104,29 @@ export default function KontaktPage() {
                       <p className="italic text-gray-400">Öffnungszeiten folgen</p>
                     </div>
                   </div>
+                  {/* Mini Map Horgen Mobile */}
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Seestrasse+159,+8810+Horgen"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative w-full h-20 mt-2 rounded-lg overflow-hidden block border border-gray-200"
+                  >
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2724.5!2d8.5975!3d47.2594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479ab1234567890%3A0x1234567890abcdef!2sSeestrasse%20159%2C%208810%20Horgen!5e0!3m2!1sde!2sch!4v1234567890"
+                      className="w-full h-full pointer-events-none"
+                      style={{ border: 0 }}
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
+                    <div className="absolute inset-0 bg-primary/20" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-5 h-5 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                        <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                      </div>
+                    </div>
+                  </a>
                   
                   {/* Social Media unter Horgen */}
                   <div className="pt-3 mt-3 border-t border-gray-200/60">
@@ -137,62 +183,112 @@ export default function KontaktPage() {
               <h2 className="text-base md:text-xl lg:text-2xl font-display font-normal tracking-tight text-gray-900 mb-3 md:mb-6">Unsere Standorte</h2>
               
               {/* Standort Siebnen */}
-              <div className="mb-4 md:mb-8">
-                <h3 className="text-[10px] md:text-sm font-medium text-primary uppercase tracking-wide mb-2 md:mb-3">Pepper Fashion Siebnen</h3>
-                <div className="space-y-0.5 md:space-y-1 text-xs md:text-sm text-gray-600 font-light">
-                  <p>
-                    <a 
-                      href="https://www.google.com/maps/search/?api=1&query=Bahnhofstrasse+1,+8854+Siebnen" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="hover:text-primary transition-colors"
-                    >
-                      Bahnhofstrasse 1
-                    </a>
-                  </p>
-                  <p>8854 Siebnen</p>
-                  <p>
-                    <a href="tel:+41555258888" className="hover:text-primary transition-colors">
-                      +41 55 525 88 88
-                    </a>
-                  </p>
-                  <p>
-                    <a href="mailto:siebnen@pepper-fashion.ch" className="hover:text-primary transition-colors text-[10px] md:text-sm">
-                      siebnen@pepper-fashion.ch
-                    </a>
-                  </p>
-                  <div className="pt-1 md:pt-2 text-[9px] md:text-xs text-gray-500">
-                    <p>Montag geschlossen</p>
-                    <p>DI-FR: 9-12 | 14-18 Uhr</p>
-                    <p>SA: 9-16 Uhr</p>
+              <div className="mb-4 md:mb-8 flex gap-4">
+                <div className="flex-1">
+                  <h3 className="text-[10px] md:text-sm font-medium text-primary uppercase tracking-wide mb-2 md:mb-3">Pepper Fashion Siebnen</h3>
+                  <div className="space-y-0.5 md:space-y-1 text-xs md:text-sm text-gray-600 font-light">
+                    <p>
+                      <a 
+                        href="https://www.google.com/maps/search/?api=1&query=Bahnhofstrasse+1,+8854+Siebnen" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:text-primary transition-colors"
+                      >
+                        Bahnhofstrasse 1
+                      </a>
+                    </p>
+                    <p>8854 Siebnen</p>
+                    <p>
+                      <a href="tel:+41555258888" className="hover:text-primary transition-colors">
+                        +41 55 525 88 88
+                      </a>
+                    </p>
+                    <p>
+                      <a href="mailto:siebnen@pepper-fashion.ch" className="hover:text-primary transition-colors text-[10px] md:text-sm">
+                        siebnen@pepper-fashion.ch
+                      </a>
+                    </p>
+                    <div className="pt-1 md:pt-2 text-[9px] md:text-xs text-gray-500">
+                      <p>Montag geschlossen</p>
+                      <p>DI-FR: 9-12 | 14-18 Uhr</p>
+                      <p>SA: 9-16 Uhr</p>
+                    </div>
                   </div>
                 </div>
+                {/* Mini Map Siebnen */}
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Bahnhofstrasse+1,+8854+Siebnen"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative w-24 h-24 md:w-32 md:h-32 rounded-lg overflow-hidden group shrink-0 border border-gray-200 hover:border-primary transition-colors"
+                >
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2724.5!2d8.8942!3d47.1756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479ab1234567890%3A0x1234567890abcdef!2sBahnhofstrasse%201%2C%208854%20Siebnen!5e0!3m2!1sde!2sch!4v1234567890"
+                    className="w-full h-full pointer-events-none"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                  <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/10 transition-colors" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-6 h-6 md:w-8 md:h-8 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                      <svg className="w-3 h-3 md:w-4 md:h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </a>
               </div>
 
               {/* Showroom Horgen */}
-              <div className="pt-3 md:pt-6 border-t border-gray-200/60">
-                <h3 className="text-[10px] md:text-sm font-medium text-primary uppercase tracking-wide mb-2 md:mb-3">Showroom Horgen</h3>
-                <div className="space-y-0.5 md:space-y-1 text-xs md:text-sm text-gray-600 font-light">
-                  <p>
-                    <a 
-                      href="https://www.google.com/maps/search/?api=1&query=Seestrasse+159,+8810+Horgen" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="hover:text-primary transition-colors"
-                    >
-                      Seestrasse 159
-                    </a>
-                  </p>
-                  <p>8810 Horgen</p>
-                  <p>
-                    <a href="tel:+41795760922" className="hover:text-primary transition-colors">
-                      +41 79 576 09 22
-                    </a>
-                  </p>
-                  <div className="pt-1 md:pt-2 text-[9px] md:text-xs text-gray-500">
-                    <p className="italic text-gray-400">Öffnungszeiten folgen</p>
+              <div className="pt-3 md:pt-6 border-t border-gray-200/60 flex gap-4">
+                <div className="flex-1">
+                  <h3 className="text-[10px] md:text-sm font-medium text-primary uppercase tracking-wide mb-2 md:mb-3">Showroom Horgen</h3>
+                  <div className="space-y-0.5 md:space-y-1 text-xs md:text-sm text-gray-600 font-light">
+                    <p>
+                      <a 
+                        href="https://www.google.com/maps/search/?api=1&query=Seestrasse+159,+8810+Horgen" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:text-primary transition-colors"
+                      >
+                        Seestrasse 159
+                      </a>
+                    </p>
+                    <p>8810 Horgen</p>
+                    <p>
+                      <a href="tel:+41795760922" className="hover:text-primary transition-colors">
+                        +41 79 576 09 22
+                      </a>
+                    </p>
+                    <div className="pt-1 md:pt-2 text-[9px] md:text-xs text-gray-500">
+                      <p className="italic text-gray-400">Öffnungszeiten folgen</p>
+                    </div>
                   </div>
                 </div>
+                {/* Mini Map Horgen */}
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Seestrasse+159,+8810+Horgen"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative w-24 h-24 md:w-32 md:h-32 rounded-lg overflow-hidden group shrink-0 border border-gray-200 hover:border-primary transition-colors"
+                >
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2724.5!2d8.5975!3d47.2594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479ab1234567890%3A0x1234567890abcdef!2sSeestrasse%20159%2C%208810%20Horgen!5e0!3m2!1sde!2sch!4v1234567890"
+                    className="w-full h-full pointer-events-none"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                  <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/10 transition-colors" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-6 h-6 md:w-8 md:h-8 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                      <svg className="w-3 h-3 md:w-4 md:h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </a>
               </div>
 
               {/* Social Media */}
