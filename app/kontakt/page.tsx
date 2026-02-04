@@ -164,6 +164,15 @@ export default function KontaktPage() {
                           <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2z" />
                         </svg>
                       </a>
+                      <a
+                        href="https://wa.me/41795760922"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-all duration-300"
+                        aria-label="WhatsApp"
+                      >
+                        <WhatsAppIcon className="w-4 h-4" />
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -327,6 +336,15 @@ export default function KontaktPage() {
                       <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2z" />
                     </svg>
                   </a>
+                  <a
+                    href="https://wa.me/41795760922"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-all duration-300"
+                    aria-label="WhatsApp"
+                  >
+                    <WhatsAppIcon className="w-4 h-4 md:w-5 md:h-5" />
+                  </a>
                 </div>
               </div>
             </aside>
@@ -373,9 +391,13 @@ function MailIcon() {
   )
 }
 
-function WhatsAppIcon() {
+type IconProps = {
+  className?: string
+}
+
+function WhatsAppIcon({ className = 'w-4 h-4' }: IconProps) {
   return (
-    <svg className="w-5 h-5 !text-primary" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
+    <svg className={className} viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
       <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32C100.2 32-.2 132.4 0 256.1c.1 39.5 10.5 78 30.2 112.1L0 480l114.9-30.2c33.5 18.3 71.3 27.9 109.1 27.9h.1c123.7 0 224.1-100.4 224.1-224.1c0-59.3-23.1-115-65.1-156.5zM224 438.7h-.1c-33.5 0-66.2-9-94.3-26.1l-6.8-4.1l-68.2 17.9l18.2-66.5l-4.4-6.9C49.7 324.7 39.8 290.8 39.7 256C39.5 154 122.7 70.7 224 70.7c49.2 0 95.4 19.2 130.2 54s54 81 54 130.2c0 101.9-83 184.9-184.2 184.9zm101.7-138.4c-5.6-2.8-33.1-16.3-38.2-18.2c-5.1-1.9-8.8-2.8-12.5 2.8c-3.7 5.6-14.4 18.2-17.6 21.9c-3.2 3.7-6.5 4.2-12.1 1.4c-5.6-2.8-23.7-8.7-45.1-27.8c-16.7-14.9-28-33.3-31.3-38.9c-3.2-5.6-.3-8.6 2.4-11.4c2.5-2.5 5.6-6.5 8.4-9.8c2.8-3.2 3.7-5.6 5.6-9.3c1.9-3.7.9-7-0.5-9.8c-1.4-2.8-12.5-30.1-17.1-41.2c-4.5-10.9-9-9.4-12.5-9.6c-3.2-.2-7-.2-10.7-.2c-3.7 0-9.8 1.4-14.9 7c-5.1 5.6-19.5 19.1-19.5 46.5c0 27.4 20 53.9 22.8 57.6c2.8 3.7 39.4 60.2 95.4 84.5c13.3 5.7 23.7 9.2 31.8 11.8c13.4 4.3 25.6 3.7 35.2 2.2c10.7-1.6 33.1-13.5 37.7-26.5c4.6-13 4.6-24.2 3.2-26.5c-1.4-2.3-5.1-3.7-10.7-6.5z" />
     </svg>
   )
