@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Datenschutz – pepper-fashion',
+  title: 'Datenschutz – Pepper Fashion',
   description: 'Datenschutzhinweise von pepper-fashion GmbH.',
 }
 
@@ -37,6 +37,50 @@ export default function DatenschutzPage() {
                 Wenn Sie uns per Kontaktformular oder E-Mail kontaktieren, werden die von Ihnen übermittelten Angaben
                 (z.&nbsp;B. Name, E-Mail-Adresse und Nachricht) zur Bearbeitung Ihrer Anfrage verarbeitet. Eine Weitergabe
                 an Dritte erfolgt nicht, ausser dies ist zur Bearbeitung erforderlich oder gesetzlich vorgeschrieben.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="heading-2">Verantwortliche Stelle</h2>
+              <p className="leading-relaxed">
+                Pepper Fashion GmbH, Bahnhofstrasse 1, CH-8854 Siebnen, E-Mail:{' '}
+                <a href="mailto:info@pepperfashion.ch" className="text-primary hover:underline">info@pepperfashion.ch</a>
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="heading-2">WhatsApp</h2>
+              <p className="leading-relaxed">
+                Wenn Sie uns über den WhatsApp-Link oder die entsprechende Schaltfläche kontaktieren, öffnet sich die
+                WhatsApp-Anwendung auf Ihrem Gerät. Die Kommunikation erfolgt dann über WhatsApp (Meta Platforms Ireland
+                Ltd.) nach deren Datenschutzbestimmungen.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="heading-2">Instagram-Feed (Elfsight)</h2>
+              <p className="leading-relaxed">
+                Auf der Startseite und der Seite «Instagram» zeigen wir unseren Instagram-Feed mit dem Dienst Elfsight
+                (Elfsight LLC, USA). Beim Laden des Feeds wird Ihre IP-Adresse an Elfsight und Instagram (Meta) übermittelt.
+                Dabei können Cookies oder ähnliche Technologien zum Einsatz kommen. Weitere Informationen finden Sie in den
+                Datenschutzerklärungen von Elfsight und Instagram.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="heading-2">Google Maps</h2>
+              <p className="leading-relaxed">
+                Auf den Seiten «Standorte» und «Kontakt» binden wir Karten von Google Maps (Google LLC, USA) ein. Beim
+                Aufruf dieser Seiten wird Ihre IP-Adresse an Google übermittelt. Weitere Informationen finden Sie in der
+                Datenschutzerklärung von Google.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="heading-2">Schriftarten</h2>
+              <p className="leading-relaxed">
+                Die Schriftarten werden beim Aufruf der Website von Google Fonts geladen. Dabei wird Ihre IP-Adresse an
+                Google übermittelt.
               </p>
             </section>
 

@@ -1,23 +1,16 @@
 import Link from 'next/link'
+import Image from 'next/image'
+import { LOCATIONS } from '@/lib/site'
 
-const standorte = [
-  {
-    id: 'pepper-fashion-siebnen',
-    slug: 'siebnen',
-    name: 'Pepper-Fashion Siebnen',
-    subtitle: 'Bahnhofstrasse 1, 8854 Siebnen',
-    description: 'Unsere Boutique im Herzen von Siebnen. Hier finden Sie Kleider und Accessoires unserer angesagten Modelabels in entspannter Atmosphäre.',
-    highlight: 'Hauptstandort',
-  },
-  {
-    id: 'showroom-horgen',
-    slug: 'horgen',
-    name: 'Showroom Horgen',
-    subtitle: 'Bei Salottino',
-    description: 'Unser exklusiver Showroom bietet Ihnen eine persönliche Einkaufserfahrung in ruhiger Atmosphäre. Ideal für individuelle Beratungstermine.',
-    highlight: 'Showroom',
-  },
-]
+const standorte = LOCATIONS.map((l) => ({
+  id: l.slug,
+  slug: l.slug,
+  name: l.name,
+  subtitle: l.note ? `${l.street}, ${l.city} – ${l.note}` : `${l.street}, ${l.city}`,
+  description: l.description,
+  highlight: l.badge,
+  image: l.image,
+}))
 
 export function StandortePreview() {
   return (
@@ -43,21 +36,25 @@ export function StandortePreview() {
           {standorte.map((standort, index) => (
             <Link
               key={standort.id}
-              href={`/standorte?open=${standort.slug}`}
-              className="group relative bg-fashion-cream/50 border border-gray-200/50 p-3 md:p-8 lg:p-12 transition-all duration-500 hover:border-primary/30 hover:shadow-xl hover:bg-white rounded-lg md:rounded-none"
+              href={`/standorte#${standort.slug}`}
+              className="group relative bg-fashion-cream/50 border border-gray-200/50 p-2 md:p-6 lg:p-8 transition-all duration-500 hover:border-primary/30 hover:shadow-xl hover:bg-white rounded-lg"
             >
               {/* Highlight Badge */}
-              <div className="absolute top-2 right-2 md:top-6 md:right-6">
-                <span className="inline-flex items-center px-1.5 py-0.5 md:px-3 md:py-1 text-[7px] md:text-xs tracking-wider uppercase bg-primary/10 text-primary font-medium">
+              <div className="absolute top-3.5 right-3.5 md:top-9 md:right-9 z-10">
+                <span className="inline-flex items-center px-1.5 py-0.5 md:px-3 md:py-1 text-[7px] md:text-xs tracking-wider uppercase bg-white/90 text-primary font-medium rounded-full">
                   {standort.highlight}
                 </span>
               </div>
 
-              {/* Number */}
-              <div className="mb-2 md:mb-6">
-                <span className="text-3xl md:text-6xl lg:text-7xl font-display font-light text-primary/20 group-hover:text-primary/30 transition-colors">
-                  0{index + 1}
-                </span>
+              {/* Foto */}
+              <div className="relative aspect-[4/3] mb-3 md:mb-6 overflow-hidden rounded-md">
+                <Image
+                  src={standort.image}
+                  alt={standort.name}
+                  fill
+                  className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 768px) 50vw, 560px"
+                />
               </div>
 
               {/* Content */}

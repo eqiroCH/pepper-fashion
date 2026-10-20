@@ -1,8 +1,8 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Impressum – pepper-fashion',
-  description: 'Impressum von pepper-fashion GmbH.',
+  title: 'Impressum – Pepper Fashion',
+  description: 'Impressum von Pepper Fashion GmbH.',
 }
 
 export default function ImpressumPage() {
@@ -18,23 +18,48 @@ export default function ImpressumPage() {
             <span className="text-gray-700">Impressum</span>
           </nav>
         </div>
-        
+
         <div className="max-w-4xl">
           <h1 className="heading-1 mb-6 md:mb-12">Impressum</h1>
-          
-          <div className="space-y-4 md:space-y-8 text-body">
+
+          <div className="space-y-6 md:space-y-10 text-body">
             <div>
-              <p className="text-gray-700">
-                Verantwortlich für Inhalt, Konzeption &amp; Realisierung des Onlineportals:
-              </p>
-              <div className="mt-6">
-                <p className="font-medium text-gray-900">pepper-fashion gmbh</p>
+              <h2 className="heading-2 mb-4">Unternehmen</h2>
+              <div className="space-y-1 text-gray-700">
+                <p className="font-medium text-gray-900">Pepper Fashion GmbH</p>
                 <p>Bahnhofstrasse 1</p>
-                <p>8854 Siebnen</p>
-                <p>Schweiz</p>
+                <p>CH-8854 Siebnen</p>
               </div>
             </div>
-            
+
+            <div>
+              <h2 className="heading-2 mb-4">Kontakt</h2>
+              <div className="space-y-1 text-gray-700">
+                <p>
+                  Telefon:{' '}
+                  <a href="tel:+41555258888" className="hover:text-primary transition-colors">
+                    +41 55 525 88 88
+                  </a>
+                </p>
+                <p>
+                  E-Mail:{' '}
+                  <a href="mailto:info@pepperfashion.ch" className="hover:text-primary transition-colors">
+                    info@pepperfashion.ch
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="heading-2 mb-4">Inhaberin</h2>
+              <p className="text-gray-700">Laura Sanchez Porzi</p>
+            </div>
+
+            <div>
+              <h2 className="heading-2 mb-4">UID</h2>
+              <p className="text-gray-700">CHE-148.484.855</p>
+            </div>
+
             <div>
               <h2 className="heading-2 mb-4">Gewährleistung</h2>
               <p className="leading-relaxed">
@@ -51,4 +76,3 @@ export default function ImpressumPage() {
     </div>
   )
 }
-

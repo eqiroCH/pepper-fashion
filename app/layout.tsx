@@ -11,8 +11,15 @@ export const metadata: Metadata = {
   title: 'Pepper Fashion',
   description: 'pepper-fashion bietet kompetente Modeberatung in Siebnen und Horgen. Entdecken Sie aktuelle Fashiontrends und lassen Sie sich professionell beraten.',
   icons: {
-    icon: '/PepperLogoNew.png',
-    apple: '/PepperLogoNew.png',
+    icon: '/logo-transparent.png',
+    apple: '/logo-transparent.png',
+  },
+  openGraph: {
+    title: 'Pepper Fashion – Siebnen & Horgen',
+    description: 'Persönliche Modeberatung in Siebnen und Horgen.',
+    locale: 'de_CH',
+    type: 'website',
+    images: ['/images/siebnen/siebnen-01.jpeg'],
   },
 }
 

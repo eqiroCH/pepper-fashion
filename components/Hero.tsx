@@ -4,22 +4,10 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 
 const heroImages = [
-  {
-    src: '/images/hero/hero-1.jpg',
-    alt: 'Fashion Model',
-  },
-  {
-    src: '/images/hero/hero-2.jpg',
-    alt: 'Fashion Model',
-  },
-  {
-    src: '/images/hero/hero-3.jpg',
-    alt: 'Fashion Model',
-  },
-  {
-    src: '/images/hero/hero-4.jpg',
-    alt: 'Fashion Model',
-  },
+  { src: '/images/siebnen/siebnen-01.jpeg', alt: 'Boutique Pepper Fashion Siebnen – Herbstmode auf dem Tisch' },
+  { src: '/images/siebnen/siebnen-07.jpeg', alt: 'Boutique Pepper Fashion Siebnen – Accessoires und Tücher' },
+  { src: '/images/siebnen/siebnen-15.jpeg', alt: 'Boutique Pepper Fashion Siebnen – Verkaufsraum' },
+  { src: '/images/siebnen/siebnen-17.jpeg', alt: 'Boutique Pepper Fashion Siebnen – Sommerfarben' },
 ]
 
 export function Hero() {
@@ -59,7 +47,7 @@ export function Hero() {
               src={image.src}
               alt={image.alt}
               fill
-              className="object-cover object-bottom"
+              className="object-cover object-center"
               priority={index === 0}
               sizes="100vw"
             />
@@ -91,8 +79,8 @@ export function Hero() {
       </button>
 
 
-      {/* Overlay Content */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+      {/* Dunkler Verlauf oben, damit Logo und Menü auf dem Foto lesbar bleiben */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/50 to-transparent" />
     </section>
   )
 }

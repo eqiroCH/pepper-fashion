@@ -1,31 +1,17 @@
-'use client'
-
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
 
 export function Intro() {
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
-
   return (
     <section 
-      className="pt-0 md:section-padding relative -mt-40 md:-mt-[350px] bg-transparent"
+      className="pt-0 md:section-padding relative -mt-24 md:-mt-[350px] bg-transparent"
     >
       <div className="container-custom relative z-10">
         {/* Header with Logo - im Vordergrund, zentriert */}
         <div className="mb-4 md:mb-8 text-center mt-0 flex flex-col items-center">
-          <div className="relative w-[420px] md:w-[600px] h-44 md:h-64 mb-4 md:mb-6 z-20 flex items-center justify-center">
+          <div className="relative w-[300px] md:w-[600px] h-32 md:h-64 mb-4 md:mb-6 z-20 flex items-center justify-center">
             <div className="relative w-full h-full">
               <Image
-                src="/PepperLogoNew.png"
+                src="/logo-transparent.png"
                 alt="Pepper Fashion - Siebnen & Horgen"
                 fill
                 className="object-contain object-center"

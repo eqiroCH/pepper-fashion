@@ -1,423 +1,104 @@
 import { ContactForm } from '@/components/ContactForm'
-import { ContactFormMobile } from '@/components/ContactFormMobile'
+import { LOCATIONS, OPENING_HOURS, SITE, mapsEmbed, mapsLink } from '@/lib/site'
 
 export const metadata = {
-  title: 'Kontakt – pepper-fashion',
-  description: 'Kontaktieren Sie pepper-fashion für Ihre Modeberatung.',
+  title: 'Kontakt – Pepper Fashion',
+  description: 'Kontaktieren Sie Pepper Fashion in Siebnen und Horgen für Ihre Modeberatung.',
 }
+
+const socialClass =
+  'w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-all duration-300'
 
 export default function KontaktPage() {
   return (
-    <div className="section-padding bg-white pt-4 md:pt-12">
+    <div className="section-padding bg-white pt-6 md:pt-12">
       <div className="container-custom">
-        <div className="mb-3 md:mb-6 text-center">
+        <div className="mb-6 md:mb-10 text-center">
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-display font-normal tracking-tight text-gray-900 mb-2 md:mb-3">Kontakt</h1>
-          <p className="text-sm md:text-xl lg:text-2xl text-gray-600 font-light max-w-2xl mx-auto">
-            Wir freuen uns auf Ihre Nachricht
-          </p>
+          <p className="text-sm md:text-xl lg:text-2xl text-gray-600 font-light max-w-2xl mx-auto">Wir freuen uns auf Ihre Nachricht</p>
         </div>
-        <div className="max-w-5xl mx-auto">
-          {/* Mobile Layout: Standorte nebeneinander, Social Media unter Horgen, Formular darunter */}
-          <div className="md:hidden space-y-4">
-            <div className="bg-fashion-cream/10 border border-gray-200/50 p-4">
-              <h2 className="text-base font-display font-normal tracking-tight text-gray-900 mb-3 text-center">Unsere Standorte</h2>
-              
-              {/* Standorte nebeneinander */}
-              <div className="grid grid-cols-2 gap-3 mb-4">
-                {/* Standort Siebnen */}
+
+        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-start">
+          <aside className="bg-fashion-cream/40 border border-gray-200/60 rounded-xl p-5 md:p-8 space-y-7">
+            <h2 className="text-lg md:text-2xl font-display font-normal tracking-tight text-gray-900">Unsere Standorte</h2>
+
+            {LOCATIONS.map((l) => (
+              <div key={l.slug} className="grid grid-cols-[1fr_120px] md:grid-cols-[1fr_150px] gap-4">
                 <div>
-                  <h3 className="text-[10px] font-medium text-primary uppercase tracking-wide mb-2">Pepper Fashion Siebnen</h3>
-                  <div className="space-y-0.5 text-xs text-gray-600 font-light">
+                  <h3 className="text-xs md:text-sm font-medium text-primary uppercase tracking-wide mb-2">{l.name}</h3>
+                  <div className="space-y-0.5 text-sm text-gray-600 font-light">
                     <p>
-                      <a 
-                        href="https://www.google.com/maps/search/?api=1&query=Bahnhofstrasse+1,+8854+Siebnen" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="hover:text-primary transition-colors"
-                      >
-                        Bahnhofstrasse 1
+                      <a href={mapsLink(l)} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                        {l.street}
                       </a>
                     </p>
-                    <p>8854 Siebnen</p>
+                    <p>{l.city}</p>
+                    {l.note && <p className="text-gray-500">{l.note}</p>}
                     <p>
-                      <a href="tel:+41555258888" className="hover:text-primary transition-colors">
-                        +41 55 525 88 88
-                      </a>
+                      <a href={l.phoneHref} className="hover:text-primary transition-colors">{l.phone}</a>
                     </p>
-                    <p>
-                      <a href="mailto:siebnen@pepper-fashion.ch" className="hover:text-primary transition-colors text-[10px]">
-                        siebnen@pepper-fashion.ch
-                      </a>
-                    </p>
-                    <div className="pt-1 text-[9px] text-gray-500">
-                      <p>Montag geschlossen</p>
-                      <p>DI-FR: 9-12 | 14-18 Uhr</p>
-                      <p>SA: 9-16 Uhr</p>
-                    </div>
                   </div>
-                  {/* Mini Map Siebnen Mobile */}
-                  <a
-                    href="https://www.google.com/maps/search/?api=1&query=Bahnhofstrasse+1,+8854+Siebnen"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative w-full h-20 mt-2 rounded-lg overflow-hidden block border border-gray-200"
-                  >
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2724.5!2d8.8942!3d47.1756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479ab1234567890%3A0x1234567890abcdef!2sBahnhofstrasse%201%2C%208854%20Siebnen!5e0!3m2!1sde!2sch!4v1234567890"
-                      className="w-full h-full pointer-events-none"
-                      style={{ border: 0 }}
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                    />
-                    <div className="absolute inset-0 bg-primary/20" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-5 h-5 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                        <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                        </svg>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-
-                {/* Showroom Horgen */}
-                <div>
-                  <h3 className="text-[10px] font-medium text-primary uppercase tracking-wide mb-2">Showroom Horgen</h3>
-                  <div className="space-y-0.5 text-xs text-gray-600 font-light">
-                    <p>
-                      <a 
-                        href="https://www.google.com/maps/search/?api=1&query=Seestrasse+159,+8810+Horgen" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="hover:text-primary transition-colors"
-                      >
-                        Seestrasse 159
-                      </a>
-                    </p>
-                    <p>8810 Horgen</p>
-                    <p>
-                      <a href="tel:+41795760922" className="hover:text-primary transition-colors">
-                        +41 79 576 09 22
-                      </a>
-                    </p>
-                    <div className="pt-1 text-[9px] text-gray-500">
-                      <p className="italic text-gray-400">Öffnungszeiten folgen</p>
-                    </div>
-                  </div>
-                  {/* Mini Map Horgen Mobile */}
-                  <a
-                    href="https://www.google.com/maps/search/?api=1&query=Seestrasse+159,+8810+Horgen"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative w-full h-20 mt-2 rounded-lg overflow-hidden block border border-gray-200"
-                  >
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2724.5!2d8.5975!3d47.2594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479ab1234567890%3A0x1234567890abcdef!2sSeestrasse%20159%2C%208810%20Horgen!5e0!3m2!1sde!2sch!4v1234567890"
-                      className="w-full h-full pointer-events-none"
-                      style={{ border: 0 }}
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                    />
-                    <div className="absolute inset-0 bg-primary/20" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-5 h-5 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                        <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                        </svg>
-                      </div>
-                    </div>
-                  </a>
-                  
-                  {/* Social Media unter Horgen */}
-                  <div className="pt-3 mt-3 border-t border-gray-200/60">
-                    <h3 className="text-[10px] font-medium text-primary uppercase tracking-wide mb-2">Folgen Sie uns</h3>
-                    <div className="flex items-center gap-3">
-                      <a
-                        href="https://www.instagram.com/pepper_fashion_gmbh/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-all duration-300"
-                        aria-label="Instagram"
-                      >
-                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                          <path
-                            d="M7 4h10a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                          />
-                          <path
-                            d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                          />
-                          <path d="M17.5 6.5h.01" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-                        </svg>
-                      </a>
-                      <a
-                        href="https://www.facebook.com/pepperfashiongmbh/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-all duration-300"
-                        aria-label="Facebook"
-                      >
-                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2z" />
-                        </svg>
-                      </a>
-                      <a
-                        href="https://wa.me/41795760922"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-all duration-300"
-                        aria-label="WhatsApp"
-                      >
-                        <WhatsAppIcon className="w-4 h-4" />
-                      </a>
-                    </div>
+                  <div className="pt-2 text-xs text-gray-500 font-light space-y-0.5">
+                    <p>{OPENING_HOURS.closed}</p>
+                    <p>{OPENING_HOURS.weekdays}</p>
+                    <p>{OPENING_HOURS.saturday}</p>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            {/* Formular */}
-            <div className="bg-fashion-cream/10 border border-gray-200/50 p-3">
-              <ContactFormMobile />
-            </div>
-          </div>
-
-          {/* Desktop Layout: Original Layout beibehalten */}
-          <div className="hidden md:grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 items-stretch">
-            {/* Kontaktinfos */}
-            <aside className="bg-fashion-cream/10 border border-gray-200/50 p-4 md:p-8 lg:p-10">
-              <h2 className="text-base md:text-xl lg:text-2xl font-display font-normal tracking-tight text-gray-900 mb-3 md:mb-6">Unsere Standorte</h2>
-              
-              {/* Standort Siebnen */}
-              <div className="mb-4 md:mb-8 flex gap-4">
-                <div className="flex-1">
-                  <h3 className="text-[10px] md:text-sm font-medium text-primary uppercase tracking-wide mb-2 md:mb-3">Pepper Fashion Siebnen</h3>
-                  <div className="space-y-0.5 md:space-y-1 text-xs md:text-sm text-gray-600 font-light">
-                    <p>
-                      <a 
-                        href="https://www.google.com/maps/search/?api=1&query=Bahnhofstrasse+1,+8854+Siebnen" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="hover:text-primary transition-colors"
-                      >
-                        Bahnhofstrasse 1
-                      </a>
-                    </p>
-                    <p>8854 Siebnen</p>
-                    <p>
-                      <a href="tel:+41555258888" className="hover:text-primary transition-colors">
-                        +41 55 525 88 88
-                      </a>
-                    </p>
-                    <p>
-                      <a href="mailto:siebnen@pepper-fashion.ch" className="hover:text-primary transition-colors text-[10px] md:text-sm">
-                        siebnen@pepper-fashion.ch
-                      </a>
-                    </p>
-                    <div className="pt-1 md:pt-2 text-[9px] md:text-xs text-gray-500">
-                      <p>Montag geschlossen</p>
-                      <p>DI-FR: 9-12 | 14-18 Uhr</p>
-                      <p>SA: 9-16 Uhr</p>
-                    </div>
-                  </div>
-                </div>
-                {/* Mini Map Siebnen */}
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=Bahnhofstrasse+1,+8854+Siebnen"
+                  href={mapsLink(l)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative w-24 h-24 md:w-32 md:h-32 rounded-lg overflow-hidden group shrink-0 border border-gray-200 hover:border-primary transition-colors"
+                  aria-label={`${l.name} in Google Maps öffnen`}
+                  className="relative block h-28 md:h-32 rounded-lg overflow-hidden border border-gray-200"
                 >
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2724.5!2d8.8942!3d47.1756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479ab1234567890%3A0x1234567890abcdef!2sBahnhofstrasse%201%2C%208854%20Siebnen!5e0!3m2!1sde!2sch!4v1234567890"
-                    className="w-full h-full pointer-events-none"
+                    src={mapsEmbed(l)}
+                    title={`Karte ${l.name}`}
+                    className="absolute inset-0 w-full h-full pointer-events-none"
                     style={{ border: 0 }}
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                   />
-                  <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/10 transition-colors" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-6 h-6 md:w-8 md:h-8 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                      <svg className="w-3 h-3 md:w-4 md:h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                      </svg>
-                    </div>
-                  </div>
                 </a>
               </div>
+            ))}
 
-              {/* Showroom Horgen */}
-              <div className="pt-3 md:pt-6 border-t border-gray-200/60 flex gap-4">
-                <div className="flex-1">
-                  <h3 className="text-[10px] md:text-sm font-medium text-primary uppercase tracking-wide mb-2 md:mb-3">Showroom Horgen</h3>
-                  <div className="space-y-0.5 md:space-y-1 text-xs md:text-sm text-gray-600 font-light">
-                    <p>
-                      <a 
-                        href="https://www.google.com/maps/search/?api=1&query=Seestrasse+159,+8810+Horgen" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="hover:text-primary transition-colors"
-                      >
-                        Seestrasse 159
-                      </a>
-                    </p>
-                    <p>8810 Horgen</p>
-                    <p>
-                      <a href="tel:+41795760922" className="hover:text-primary transition-colors">
-                        +41 79 576 09 22
-                      </a>
-                    </p>
-                    <div className="pt-1 md:pt-2 text-[9px] md:text-xs text-gray-500">
-                      <p className="italic text-gray-400">Öffnungszeiten folgen</p>
-                    </div>
-                  </div>
-                </div>
-                {/* Mini Map Horgen */}
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=Seestrasse+159,+8810+Horgen"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative w-24 h-24 md:w-32 md:h-32 rounded-lg overflow-hidden group shrink-0 border border-gray-200 hover:border-primary transition-colors"
-                >
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2724.5!2d8.5975!3d47.2594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479ab1234567890%3A0x1234567890abcdef!2sSeestrasse%20159%2C%208810%20Horgen!5e0!3m2!1sde!2sch!4v1234567890"
-                    className="w-full h-full pointer-events-none"
-                    style={{ border: 0 }}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
-                  <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/10 transition-colors" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-6 h-6 md:w-8 md:h-8 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                      <svg className="w-3 h-3 md:w-4 md:h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                      </svg>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              {/* Social Media */}
-              <div className="pt-3 md:pt-6 mt-3 md:mt-6 border-t border-gray-200/60">
-                <h3 className="text-[10px] md:text-sm font-medium text-primary uppercase tracking-wide mb-2 md:mb-4">Folgen Sie uns</h3>
-                <div className="flex items-center gap-3 md:gap-4">
-                  <a
-                    href="https://www.instagram.com/pepper_fashion_gmbh/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-all duration-300"
-                    aria-label="Instagram"
-                  >
-                    <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                      <path
-                        d="M7 4h10a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                      />
-                      <path
-                        d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                      />
+            <div className="pt-5 border-t border-gray-200/70 space-y-4">
+              <p className="text-sm text-gray-600 font-light">
+                E-Mail:{' '}
+                <a href={`mailto:${SITE.email}`} className="text-gray-900 hover:text-primary transition-colors">{SITE.email}</a>
+              </p>
+              <div>
+                <h3 className="text-xs md:text-sm font-medium text-primary uppercase tracking-wide mb-3">Folgen Sie uns</h3>
+                <div className="flex items-center gap-3">
+                  <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" className={socialClass} aria-label="Instagram">
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M7 4h10a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z" stroke="currentColor" strokeWidth="1.5" />
+                      <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" stroke="currentColor" strokeWidth="1.5" />
                       <path d="M17.5 6.5h.01" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
                     </svg>
                   </a>
-                  <a
-                    href="https://www.facebook.com/pepperfashiongmbh/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-all duration-300"
-                    aria-label="Facebook"
-                  >
-                    <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <a href={SITE.facebook} target="_blank" rel="noopener noreferrer" className={socialClass} aria-label="Facebook">
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                       <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2z" />
                     </svg>
                   </a>
-                  <a
-                    href="https://wa.me/41795760922"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-all duration-300"
-                    aria-label="WhatsApp"
-                  >
-                    <WhatsAppIcon className="w-4 h-4 md:w-5 md:h-5" />
+                  <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer" className={socialClass} aria-label="WhatsApp">
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.22-8.24 8.22zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.07-.1-.23-.16-.48-.28z" />
+                    </svg>
                   </a>
                 </div>
               </div>
-            </aside>
-
-            {/* Formular (schmaler) */}
-            <div className="bg-fashion-cream/10 border border-gray-200/50 p-4 md:p-8 lg:p-10">
-              <ContactForm />
             </div>
+          </aside>
+
+          <div className="bg-white border border-gray-200/60 rounded-xl p-5 md:p-8 shadow-sm">
+            <h2 className="text-lg md:text-2xl font-display font-normal tracking-tight text-gray-900 mb-5">Schreiben Sie uns</h2>
+            <ContactForm />
           </div>
         </div>
       </div>
     </div>
   )
 }
-
-function PhoneIcon() {
-  return (
-    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M7 3h3l2 5-2 1c1.2 2.4 3.1 4.3 5.5 5.5l1-2 5 2v3c0 1.1-.9 2-2 2C10.1 20 4 13.9 4 6c0-1.1.9-2 2-2z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-}
-
-function MailIcon() {
-  return (
-    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M4 7c0-1.1.9-2 2-2h12c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V7z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-      />
-      <path
-        d="M4.5 7.5l7.5 6 7.5-6"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-}
-
-type IconProps = {
-  className?: string
-}
-
-function WhatsAppIcon({ className = 'w-4 h-4' }: IconProps) {
-  return (
-    <svg className={className} viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
-      <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32C100.2 32-.2 132.4 0 256.1c.1 39.5 10.5 78 30.2 112.1L0 480l114.9-30.2c33.5 18.3 71.3 27.9 109.1 27.9h.1c123.7 0 224.1-100.4 224.1-224.1c0-59.3-23.1-115-65.1-156.5zM224 438.7h-.1c-33.5 0-66.2-9-94.3-26.1l-6.8-4.1l-68.2 17.9l18.2-66.5l-4.4-6.9C49.7 324.7 39.8 290.8 39.7 256C39.5 154 122.7 70.7 224 70.7c49.2 0 95.4 19.2 130.2 54s54 81 54 130.2c0 101.9-83 184.9-184.2 184.9zm101.7-138.4c-5.6-2.8-33.1-16.3-38.2-18.2c-5.1-1.9-8.8-2.8-12.5 2.8c-3.7 5.6-14.4 18.2-17.6 21.9c-3.2 3.7-6.5 4.2-12.1 1.4c-5.6-2.8-23.7-8.7-45.1-27.8c-16.7-14.9-28-33.3-31.3-38.9c-3.2-5.6-.3-8.6 2.4-11.4c2.5-2.5 5.6-6.5 8.4-9.8c2.8-3.2 3.7-5.6 5.6-9.3c1.9-3.7.9-7-0.5-9.8c-1.4-2.8-12.5-30.1-17.1-41.2c-4.5-10.9-9-9.4-12.5-9.6c-3.2-.2-7-.2-10.7-.2c-3.7 0-9.8 1.4-14.9 7c-5.1 5.6-19.5 19.1-19.5 46.5c0 27.4 20 53.9 22.8 57.6c2.8 3.7 39.4 60.2 95.4 84.5c13.3 5.7 23.7 9.2 31.8 11.8c13.4 4.3 25.6 3.7 35.2 2.2c10.7-1.6 33.1-13.5 37.7-26.5c4.6-13 4.6-24.2 3.2-26.5c-1.4-2.3-5.1-3.7-10.7-6.5z" />
-    </svg>
-  )
-}
-
-function InstagramIcon() {
-  return (
-    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M7 4h10a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-      />
-      <path
-        d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-      />
-      <path d="M17.5 6.5h.01" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-    </svg>
-  )
-}
-
