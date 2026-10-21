@@ -8,10 +8,10 @@ export const SITE = {
   facebook: 'https://www.facebook.com/pepperfashiongmbh/',
 }
 
-export const OPENING_HOURS = {
-  closed: 'Montag geschlossen',
-  weekdays: 'Di–Fr: 9–12 | 14–18:30 Uhr',
-  saturday: 'Sa: 9–16 Uhr',
+export interface OpeningHours {
+  closed: string
+  weekdays: string
+  saturday: string
 }
 
 export interface Location {
@@ -23,6 +23,7 @@ export interface Location {
   phone: string
   phoneHref: string
   note?: string
+  hours: OpeningHours
   description: string
   image: string
   imageAlt: string
@@ -37,6 +38,11 @@ export const LOCATIONS: Location[] = [
     city: '8854 Siebnen',
     phone: '+41 55 525 88 88',
     phoneHref: 'tel:+41555258888',
+    hours: {
+      closed: 'Montag geschlossen',
+      weekdays: 'Di–Fr: 9–12 | 14–18:30 Uhr',
+      saturday: 'Sa: 9–16 Uhr',
+    },
     description:
       'Unsere Boutique im Herzen von Siebnen. Hier finden Sie Kleider, Schuhe und Accessoires unserer angesagten Modelabels – in entspannter Atmosphäre und mit persönlicher Beratung.',
     image: '/images/siebnen/siebnen-15.jpeg',
@@ -51,6 +57,12 @@ export const LOCATIONS: Location[] = [
     phone: '+41 79 576 09 22',
     phoneHref: 'tel:+41795760922',
     note: 'bei Salottino',
+    // Zeiten gemäss Salottino
+    hours: {
+      closed: 'Montag geschlossen',
+      weekdays: 'Di–Fr: 10–12 | 15–18 Uhr',
+      saturday: 'Sa: 10–15 Uhr',
+    },
     description:
       'Unser Showroom in Horgen bei Salottino bietet Ihnen eine exklusive Einkaufserfahrung in ruhiger Atmosphäre – ideal für individuelle Beratungstermine.',
     image: '/images/horgen/horgen-02.jpeg',

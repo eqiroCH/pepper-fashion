@@ -1,5 +1,5 @@
 import { ContactForm } from '@/components/ContactForm'
-import { LOCATIONS, OPENING_HOURS, SITE, mapsEmbed, mapsLink } from '@/lib/site'
+import { LOCATIONS, SITE, mapsEmbed, mapsLink } from '@/lib/site'
 
 export const metadata = {
   title: 'Kontakt – Pepper Fashion',
@@ -39,9 +39,9 @@ export default function KontaktPage() {
                     </p>
                   </div>
                   <div className="pt-2 text-xs text-gray-500 font-light space-y-0.5">
-                    <p>{OPENING_HOURS.closed}</p>
-                    <p>{OPENING_HOURS.weekdays}</p>
-                    <p>{OPENING_HOURS.saturday}</p>
+                    <p>{l.hours.closed}</p>
+                    <p>{l.hours.weekdays}</p>
+                    <p>{l.hours.saturday}</p>
                   </div>
                 </div>
                 <a

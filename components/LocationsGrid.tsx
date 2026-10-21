@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { LOCATIONS, OPENING_HOURS, SITE, mapsEmbed, mapsLink } from '@/lib/site'
+import { LOCATIONS, SITE, mapsEmbed, mapsLink } from '@/lib/site'
 
 export function LocationsGrid() {
   return (
@@ -25,8 +25,9 @@ export function LocationsGrid() {
 
           <div className="p-5 md:p-8">
             <h2 className="text-xl md:text-2xl font-display font-normal tracking-tight text-gray-900 mb-1">{l.name}</h2>
-            {l.note && <p className="text-xs md:text-sm text-primary font-medium tracking-wide mb-3">{l.note}</p>}
-            <p className="text-sm md:text-base text-gray-600 font-light leading-relaxed mb-5">{l.description}</p>
+            {/* feste Zeilenhöhen, damit beide Karten auf gleicher Höhe stehen */}
+            <p className="text-xs md:text-sm text-primary font-medium tracking-wide mb-3 min-h-[1.25rem]">{l.note ?? '\u00A0'}</p>
+            <p className="text-sm md:text-base text-gray-600 font-light leading-relaxed mb-5 lg:min-h-[7.5rem]">{l.description}</p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 text-sm text-gray-600 font-light">
               <div className="space-y-1">
@@ -42,9 +43,9 @@ export function LocationsGrid() {
               </div>
               <div className="space-y-1">
                 <h3 className="text-xs font-medium uppercase tracking-wider text-gray-900 mb-2">Öffnungszeiten</h3>
-                <p>{OPENING_HOURS.closed}</p>
-                <p>{OPENING_HOURS.weekdays}</p>
-                <p>{OPENING_HOURS.saturday}</p>
+                <p>{l.hours.closed}</p>
+                <p>{l.hours.weekdays}</p>
+                <p>{l.hours.saturday}</p>
               </div>
             </div>
 
