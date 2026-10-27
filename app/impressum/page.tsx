@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { BackToHome } from '@/components/BackToHome'
 
 export const metadata = {
   title: 'Impressum – Pepper Fashion',
@@ -72,6 +73,7 @@ export default function ImpressumPage() {
             </div>
           </div>
         </div>
+        <BackToHome align="left" />
       </div>
     </div>
   )

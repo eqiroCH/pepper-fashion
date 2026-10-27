@@ -1,3 +1,4 @@
+import { BackToHome } from '@/components/BackToHome'
 import { ContactForm } from '@/components/ContactForm'
 import { LOCATIONS, SITE, mapsEmbed, mapsLink } from '@/lib/site'
 
@@ -98,6 +99,7 @@ export default function KontaktPage() {
             <ContactForm />
           </div>
         </div>
+        <BackToHome />
       </div>
     </div>
   )

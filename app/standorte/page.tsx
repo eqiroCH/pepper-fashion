@@ -1,4 +1,5 @@
 import { LocationsGrid } from '@/components/LocationsGrid'
+import { BackToHome } from '@/components/BackToHome'
 
 export const metadata = {
   title: 'Standorte – Pepper Fashion',
@@ -16,6 +17,7 @@ export default function StandortePage() {
           </p>
         </div>
         <LocationsGrid />
+        <BackToHome />
       </div>
     </div>
   )

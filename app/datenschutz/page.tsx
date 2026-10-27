@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { BackToHome } from '@/components/BackToHome'
 
 export const metadata = {
   title: 'Datenschutz – Pepper Fashion',
@@ -114,6 +115,7 @@ export default function DatenschutzPage() {
             </section>
           </div>
         </div>
+        <BackToHome align="left" />
       </div>
     </div>
   )

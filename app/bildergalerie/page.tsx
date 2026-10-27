@@ -1,4 +1,5 @@
 import { GallerySection } from '@/components/GallerySection'
+import { BackToHome } from '@/components/BackToHome'
 
 export const metadata = {
   title: 'Bildergalerie – Pepper Fashion',
@@ -16,6 +17,7 @@ export default function BildergaleriePage() {
           </p>
         </div>
         <GallerySection />
+        <BackToHome />
       </div>
     </div>
   )
